@@ -1,4 +1,4 @@
-<footer class="feet">
+<footer>
     <div>
         This Website Is Made By Pascal, Bas, Eby, Floris
         <div class="copy">
