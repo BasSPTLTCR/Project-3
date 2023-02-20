@@ -5,5 +5,5 @@
             © 2022 - SiRa
         </div>
     </div>
-    <a href="https://pascal-benink.github.io/Coding-enterprice-main/"><img src="./img/logo.png" alt=""></a>
+    <img src="./img/logo.png" alt="">
 </footer>
