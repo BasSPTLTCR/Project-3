@@ -12,8 +12,7 @@
     include "./nav.php";
     ?>
     <header class="indexheader">
-        <h1></h1>
-        <h2></h2>
+
     </header>
 </body>
 </html>
