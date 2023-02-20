@@ -14,5 +14,8 @@
     <header class="indexheader">
 
     </header>
+    <?php
+    include "./footer.php";
+    ?>
 </body>
 </html>

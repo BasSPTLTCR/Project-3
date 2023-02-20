@@ -1,3 +1,4 @@
+/*Algemeen*/
 * {
     margin: 0;
     padding: 0;
@@ -56,9 +57,17 @@ footer {
 footer img {
     height: 10vh;
 }
+.copy {
+    color: darkgray;
+    font-size: 1.2rem;
+}
 .indexheader{
     background-image: url(./img/pand.png);
     background-size: auto;
     background-repeat: no-repeat;
     height: 40rem;
 }
+/*end=Algemeen*/
+
+/*Page-Specifiek*/
+/*end=Page-Specifiek*/
