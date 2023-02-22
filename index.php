@@ -11,7 +11,7 @@
     <?php
     include "./navlog.php";
     ?>
-    <header class="indexheader"></header>
+    
     <section class="homepagina">
     <section class="doelstelling">
         <h1 class="doel">Wat is ons doel met SiRa?</h1>

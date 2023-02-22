@@ -136,9 +136,11 @@ header {
 
 .indexheader {
   background-image: url(./img/pand.png);
-  background-size: auto;
-  background-repeat: no-repeat;
-  height: 40rem;
+  height: 80vh;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .pass {
@@ -191,5 +193,15 @@ header {
   margin: 0 3rem 0 3rem;
 }
 
+.bedrijfges {
+  border-radius: 3rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 2rem;
+  color: white;
+  height: 40vh;
+  width: 60vw;
+  margin-top: 25rem;
+  padding: 2rem;
+}
 /*end=Page-Specifiek*/
 /*end=Page-Specifiek*/
