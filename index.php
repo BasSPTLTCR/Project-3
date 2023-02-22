@@ -9,7 +9,7 @@
 </head>
 <body>
     <?php
-    include "./nav.php";
+    include "./navlog.php";
     ?>
     <header class="indexheader">
 
