@@ -16,7 +16,7 @@
             <a href="#" class="dropbtn">Formulieren</a>
             <div class="dropdown-content">
                 <a href="./com.php">Compliment</a>
-                <a href="./complaint.php">Klacht</a>
+                <a href="./klacht.php">Klacht</a>
             </div>
         </li>
     </ul>
