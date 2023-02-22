@@ -20,10 +20,29 @@ nav {
     background-color: black;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    padding: 0rem 5rem;
+    justify-content: space-evenly;
+    padding: 0rem 2.5rem;
     width: 100vw;
     height: 10rem;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: black;
+    z-index: 10000; 
+    text-align: left;
+    padding: 1rem;
+    margin-right: 1rem;
+    width: 15vw;
+}
+.dropdown-content a {
+  color: red;
+  padding: 0.8rem 1rem 0rem 0.2rem;
+  display: block;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+  text-align: left;
 }
 nav a {
     color: red;
@@ -36,9 +55,9 @@ nav li {
 nav ul {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    width: 70vw;
     align-items: center;
-    width: 50vw;
 }
 footer {
     position: absolute;
@@ -59,15 +78,47 @@ footer img {
 }
 .copy {
     color: darkgray;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+}
+.log{
+    margin-top: 1.5rem;
+}
+label{
+    font-size: 2rem;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+h1{
+    font-size: 2.5rem;
+}
+header{
+    text-align: center;
 }
 /*end=Algemeen*/
 
 /*Page-Specifiek*/
-.indexheader{
+.indexheader3{
     background-image: url(./img/pand.png);
     background-size: auto;
     background-repeat: no-repeat;
     height: 40rem;
+}
+.pass {
+    height: 10vh;
+}
+.emp {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20vw;
+}
+.emplist {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 /*end=Page-Specifiek*/
