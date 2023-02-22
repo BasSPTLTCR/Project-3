@@ -1,8 +1,8 @@
 <footer>
     <div>
-        This Website Is Made By Pascal, Bas, Eby, Floris
+        <p>Deze website is gemaakt door Pascal, Bas, Eby, Floris</p>
         <div class="copy">
-            © 2022 - SiRa
+            © 2023 - SiRa
         </div>
     </div>
     <img src="./img/logo.png" alt="">
