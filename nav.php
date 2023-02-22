@@ -7,7 +7,7 @@
                 <a href="./emp.php">Medewerkers</a>
                 <a href="./Bedrijfinfo.php">Bedrijfsinformatie</a>
                 <a href="./">Retour Policy</a>
-                <a href="./">Milieu</a>
+                <a href="./milieu.php">Milieu</a>
             </div>
         </li>
         <li><a href="./">Producten</a></li>
