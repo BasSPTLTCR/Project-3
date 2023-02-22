@@ -93,6 +93,10 @@ footer {
     width: 100vw;
 }
 
+footer div p {
+    font-size: 2rem;
+}
+
 footer img {
     height: 10vh;
 }
