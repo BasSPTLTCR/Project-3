@@ -5,7 +5,7 @@
             <a href="#" class="dropbtn">Informatie</a>
             <div class="dropdown-content">
                 <a href="./emp.php">Medewerkers</a>
-                <a href="./">Bedrijfsinformatie</a>
+                <a href="./Bedrijfinfo.php">Bedrijfsinformatie</a>
                 <a href="./">Retour Policy</a>
                 <a href="./">Milieu</a>
             </div>
@@ -20,6 +20,5 @@
             </div>
         </li>
     </ul>
-    <a href="./cart.php"><img src="./img/shop.png" alt="" class="log"></a>
-    <a href="./account.php"><img src="./img/account.png" alt="" class="log"></a>
+    <a href="./login.php"><img src="./img/inlog.png" alt="" class="log"></a> 
 </nav>

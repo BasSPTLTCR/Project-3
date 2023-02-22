@@ -9,7 +9,7 @@
 </head>
 <body>
     <?php
-    include "./include/navlog.php";
+    include "./navlog.php";
     ?>
     <header class="indexheader"></header>
     <section class="homepagina">
@@ -42,7 +42,7 @@ Het is belangrijk dat SiRa haar doelstelling meetbaar en specifiek maakt, zodat 
     </section>
     </section>
     <?php
-    include "./include/footer.php";
+    include "./footer.php";
     ?>
 
 </body>
