@@ -9,7 +9,7 @@
 </head>
 <body>
     <?php
-    include "./navlog.php";
+    include "./include/navlog.php";
     ?>
     <header class="indexheader"></header>
     <section class="homepagina">
@@ -18,6 +18,7 @@
         <br><br>
         <p class="doeltekst">In 2016 begon waren de Koplopers van de Simulatie markt in Nederland, Bol.com en Mediamarkt.
              in 2022 werd SiRa nummer 1 van Nederland en sindsdien willen wij nummer 1 van de wereld worden.
+             <br>
              <br>
 
 Om deze doelstelling te bereiken, zou SiRa zich op verschillende strategieën kunnen richten, zoals:
@@ -41,7 +42,7 @@ Het is belangrijk dat SiRa haar doelstelling meetbaar en specifiek maakt, zodat 
     </section>
     </section>
     <?php
-    include "./footer.php";
+    include "./include/footer.php";
     ?>
 
 </body>
