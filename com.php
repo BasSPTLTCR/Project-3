@@ -11,22 +11,24 @@
     <?php
     include "./nav.php";
     ?>
-    <section class="form">
-        <h1>Complimenten Formulier</h1>
-        <form action="" method="post">
-            <label for="name">Naam: </label>
-            <input type="text" name="name">
-            <br>
-            <label for="email">E-Mail: </label>
-            <input type="email" name="email">
-            <br>
-            <label for="com">Compliment: </label>
-            <br>
-            <textarea name="com" cols="30" rows="10"></textarea>
-            <br>
-            <input type="submit" value="Verstuur">
-        </form>
-    </section>
+    <div class="form-img">
+        <section class="form">
+            <h1>Complimenten Formulier</h1>
+            <form action="" method="post">
+                <label for="name">Naam: </label>
+                <input type="text" name="name">
+                <br>
+                <label for="email">E-Mail: </label>
+                <input type="email" name="email">
+                <br>
+                <label for="com">Compliment: </label>
+                <br>
+                <textarea name="com" cols="30" rows="10"></textarea>
+                <br>
+                <input type="submit" value="Verstuur" class="button">
+            </form>
+        </section>
+    </div>
     <?php
     include "./footer.php";
     ?>

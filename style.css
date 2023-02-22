@@ -134,11 +134,20 @@ header{
 
 /*Page-Specifiek*/
 
+.button{
+  padding: 0.75rem;
+}
 .form {
+    margin-top: 15vh;
+    border-radius: 3rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 12vh;
+    background-color: white;
+    opacity: 80%;
+    width: 17vw;
+    padding-bottom: 2vh;
+    padding-top: 2vh;
 }
 
 form {
@@ -147,11 +156,15 @@ form {
     align-items: center;
 }
 
-.form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 12vh;
+.form-img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+    background-image: url("./img/car.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 80vh;
 }
 
 form {
