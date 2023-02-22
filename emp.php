@@ -19,25 +19,25 @@
             <img src="./img/pass/pascal.jpg" alt="" class="pass">
             <h2>Pascal Benink</h2>
             <h3>Head Development</h3>
-            <p>9018437@student.tcrmbo.nl</p>
+            <p>E-mail 9018437@student.tcrmbo.nl</p>
         </section>
         <section class="emp">
             <img src="./img/pass/bas.jpg" alt="" class="pass">
             <h2>Bas van den Blink</h2>
             <h3>Head Verkoop</h3>
-            <p>9014541@student.tcrmbo.nl</p>
+            <p>E-mail 9014541@student.tcrmbo.nl</p>
         </section>
         <section class="emp">
             <img src="./img/pass/eby.jpg" alt="" class="pass">
             <h2>Eby van Bokkem</h2>
             <h3>Head Financiën</h3>
-            <p>9018644@student.tcrmbo.nl</p>
+            <p>E-mail 9018644@student.tcrmbo.nl</p>
         </section>
         <section class="emp">
             <img src="./img/pass/floris.jpg" alt="" class="pass">
             <h2>Floris Breemer</h2>
             <h3>Head Marketing</h3>
-            <p>9018376@student.tcrmbo.nl</p>
+            <p>E-mail 9018376@student.tcrmbo.nl</p>
         </section>
     </main>
     <?php
