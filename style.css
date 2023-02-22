@@ -6,39 +6,39 @@
 }
 
 html {
-    font-size: 62.5%;
+  font-size: 62.5%;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
-    overflow-x: hidden;
-    min-height: 100vh;
-    position: relative;
+  font-family: "Roboto", sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+  position: relative;
 }
 
 .nav-logo {
-    height: 14vh;
+    height: 10vh;
 }
 
 nav {
-    background-color: black;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    padding: 0rem 2.5rem;
-    width: 100vw;
-    height: 10rem;
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 0rem 2.5rem;
+  width: 100vw;
+  height: 10rem;
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
     background-color: black;
-    z-index: 3; 
+    z-index: 10000; 
+    text-align: left;
     padding: 1rem;
-    margin-left: -6rem;
     margin-right: 1rem;
-    width: 17vw;
+    width: 15vw;
 }
 
 .dropdown-content a {
@@ -61,13 +61,13 @@ nav {
 }
 
 nav a {
-    color: red;
+     color: red;
     text-decoration: none;
     font-size: 3rem;
 }
 
 nav li {
-    list-style: none;
+     list-style: none;
 }
 
 nav ul {
@@ -82,9 +82,10 @@ footer {
     position: absolute;
     bottom: 0;
     background-color: black;
-    color: red;
+    color: brown;
     font-size: 3rem;
     height: 10vh;
+    z-index: 3;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -98,28 +99,34 @@ footer div p {
 }
 
 footer img {
-    height: 10vh;
+  height: 10vh;
 }
 
 .copy {
-    color: darkgray;
-    font-size: 1.5rem;
+  color: darkgray;
+  font-size: 1.5rem;
 }
 
-.log {
+.log{
     margin-top: 1.5rem;
-    height: 8.5vh;
+    height: 8vh;
 }
 
-label {
+label{
     font-size: 2rem;
 }
 
-h1 {
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1{
     font-size: 2.5rem;
 }
 
-header {
+header{
     text-align: center;
 }
 
@@ -140,7 +147,20 @@ form {
     align-items: center;
 }
 
-.indexheader {
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 12vh;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.indexheader{
     background-image: url(./img/pand.png);
     background-size: auto;
     background-repeat: no-repeat;
@@ -148,22 +168,52 @@ form {
 }
 
 .pass {
-    height: 10vh;
+  height: 10vh;
 }
 
 .emp {
-    padding: 3rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 20vw;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20vw;
 }
 
 .emplist {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.homepagina {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 30rem;
+}
+
+.doelstelling {
+  margin-top: 3rem;
+  height: 30rem;
+  width: 90%;
+  background-color: rgb(0, 0, 0);
+  border-radius: 2rem;
+}
+
+.doel {
+margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  color: rgb(255, 255, 255);
+}
+
+.doeltekst {
+  display: flex;
+  justify-content: center;
+  font-size: 1.3rem;
+  color: rgb(255, 255, 255);
+  margin: 0 3rem 0 3rem;
 }
 
 /*end=Page-Specifiek*/
-
+/*end=Page-Specifiek*/
