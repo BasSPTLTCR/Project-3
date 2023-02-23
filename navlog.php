@@ -20,5 +20,6 @@
             </div>
         </li>
     </ul>
-    <a href="./login.php"><img src="./img/inlog.png" alt=""></a>
+    <a href="./cart.php"><img src="./img/shop.png" alt="" class="log"></a>
+    <a href="./account.php"><img src="./img/account.png" alt="" class="log"></a>
 </nav>
