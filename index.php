@@ -11,7 +11,7 @@
     <?php
     include "./nav.php";
     ?>
-    <header class="indexheader">
+    <header class="indexheader3">
 
     </header>
     <?php
