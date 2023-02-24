@@ -235,5 +235,16 @@ form {
   margin-top: 25rem;
   padding: 2rem;
 }
+
+.milieutekst {
+  border-radius: 3rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 1.9rem;
+  color: white;
+  height: 40vh;
+  width: 60vw;
+  margin-top: 25rem;
+  padding: 2rem;
+}
 /*end=Page-Specifiek*/
 /*end=Page-Specifiek*/
