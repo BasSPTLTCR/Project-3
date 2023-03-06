@@ -13,7 +13,7 @@
     include "./nav.php";
     ?>
     <div class="form-img">
-        <section class="form p">
+        <section class="form post">
             <?php
             echo "Compliment";
             echo "<br>";

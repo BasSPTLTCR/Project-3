@@ -133,6 +133,9 @@ header {
 /*end=Algemeen*/
 
 /*Page-Specifiek*/
+.post{
+  max-width: 35vw;
+}
 
 .indexheader {
   background-image: url(./img/pand.png);
