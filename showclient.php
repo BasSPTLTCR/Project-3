@@ -52,7 +52,6 @@
 
             </tbody>
         </table>
-
         <?php
         }
         else
