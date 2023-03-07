@@ -1,3 +1,4 @@
+<!-- Pagina van Bas -->
 <nav>
     <a href="./index.php"><img src="./img/logo.png" alt="" class="nav-logo"></a>
     <ul>
@@ -21,5 +22,5 @@
         </li>
     </ul>
     <a href="./cart.php"><img src="./img/shop.png" alt="" class="log"></a>
-    <a href="./account.php"><img src="./img/account.png" alt="" class="log"></a>
+    <a href="./account.php"><img src="./img/user-icon.jpg" alt="" class="log"></a>
 </nav>

@@ -1,3 +1,4 @@
+<!-- Pagina van Bas -->
 <footer>
     <div>
         <p>Deze website is gemaakt door Pascal, Bas, Eby, Floris</p>
