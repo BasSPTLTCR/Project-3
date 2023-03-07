@@ -13,13 +13,14 @@
     ?>
     <main>
     <?php
+    $city = $_POST["city"];
         #1 verbinding database
         require './dbconnenct.php';
 
         #2 querydef
         try
         {
-            $oneQuery = $db->prepare("SELECT city FROM `client`");
+            $fullQuery = $db->prepare("SELECT firstname, surname FROM `client` WHERE city LIKE '$city'");
 
         }
         catch(PDOExeption $e) 
@@ -27,35 +28,38 @@
             die("Fout bij verbinden met database: " . $e->getMessage());
         }
         #3 querydoen
-        $oneQuery->execute();
+        $fullQuery->execute();
 
         #4 checkresult
-        if ($oneQuery->RowCount() > 0)
+        if ($fullQuery->RowCount() > 0)
         {
-        $result=$oneQuery->FetchAll(PDO::FETCH_ASSOC);
+        $result=$fullQuery->FetchAll(PDO::FETCH_ASSOC);
 
         #5 show result
         ?>
-        <form action="./showclient3.php" method="post">
-        <select name="city" id="city">
-            <option value="">--- Kies een stad ---</option>
-
+        <table>
+            <thead>
+                <th>firstname</th>
+                <th>surname</th>
+            </thead>
+            <tbody>
                 <?php
                     foreach($result as $rij) 
                     {
-                        echo "<option value='".$rij["city"].">".$rij["city"]."</option>";
+                        echo "<tr><td>" . $rij["firstname"] . "</td>";
+                        echo "<td>" . $rij["surname"] . "</td></tr>";
                     }
                 ?>
-            </select>
-            <input type="submit" value="confirm">
-        </form>
+
+            </tbody>
+        </table>
         <?php
         }
-        if (isset($_POST["confirm"])) {
-            $city = $_POST["city"];
+        else
+        {
+            echo "<h2>Sorry,Geen resultaat gevonden</h2>";
         }
         #6 geen result melding
-
         ?>
     </main>
     <?php
