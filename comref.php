@@ -18,13 +18,13 @@
             echo "Compliment";
             echo "<br>";
             echo "<br>";
-            echo "Naam: " . $_POST['name'];
+            echo "<p class='par'>Naam: " . $_POST['name'] . "</p>";
             echo "<br>";
             echo "<br>";
-            echo "E-Mail: " . $_POST['email'];
+            echo "<p class='par'>E-Mail: " . $_POST['email'] . "</p>";
             echo "<br>";
             echo "<br>";
-            echo "Compliment: " . $_POST['com'];
+            echo "<p class='par'>Compliment: " . $_POST['com'] . "</p>";
             ?>
         </section>
         <form action="./index.php" method="post">
