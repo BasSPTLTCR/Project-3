@@ -19,7 +19,7 @@
         #2 querydef
         try
         {
-            $fullQuery = $db->prepare("SELECT firstname, surname FROM `client`");
+            $fullQuery = $db->prepare("SELECT firstname, surname, gender, `address`, city, zipcode, email FROM `client`");
 
         }
         catch(PDOExeption $e) 
@@ -36,17 +36,27 @@
 
         #5 show result
         ?>
-        <table>
+        <table class="tafel">
             <thead>
                 <th>firstname</th>
                 <th>surname</th>
+                <th>gender</th>
+                <th>address</th>
+                <th>city</th>
+                <th>zipcode</th>
+                <th>email</th>
             </thead>
             <tbody>
                 <?php
                     foreach($result as $rij) 
                     {
                         echo "<tr><td>" . $rij["firstname"] . "</td>";
-                        echo "<td>" . $rij["surname"] . "</td></tr>";
+                        echo "<td>" . $rij["surname"] . "</td>";
+                        echo "<td>" . $rij["gender"] . "</td>";
+                        echo "<td>" . $rij["address"] . "</td>";
+                        echo "<td>" . $rij["city"] . "</td>";
+                        echo "<td>" . $rij["zipcode"] . "</td>";
+                        echo "<td>" . $rij["email"] . "</td></tr>";
                     }
                 ?>
 
