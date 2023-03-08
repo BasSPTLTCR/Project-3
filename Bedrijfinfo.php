@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="./style.css">
     <title>Document</title>
 </head>
-<body>
+<body class="grey-background">
 <?php
     include "./nav.php";
     ?>
 <main>
-<header class="indexheader">
-    <p class="bedrijfges">Het begon allemaal in 2016, toen vier vrienden besloten om hun passie voor simulatie-technologie om te zetten in een bedrijf. Ze hadden allemaal ervaring opgedaan in de tech-industrie, maar wilden hun eigen weg inslaan en iets creëren waar ze echt gepassioneerd over waren.
+<header class="informatie-algemeen">
+    <p class="doeltekst">Het begon allemaal in 2016, toen vier vrienden besloten om hun passie voor simulatie-technologie om te zetten in een bedrijf. Ze hadden allemaal ervaring opgedaan in de tech-industrie, maar wilden hun eigen weg inslaan en iets creëren waar ze echt gepassioneerd over waren.
 Na maanden van plannen en onderzoek, lanceerden ze hun bedrijf: SiRa. Het was een klein bedrijfje, maar ze waren vastbesloten om hun naam bekend te maken in de wereld van simulatie-technologie. Ze begonnen met het verkopen van een eenvoudige simulator voor autoracen, maar hun droom was om in de toekomst simulatoren te verkopen op grote schaal voor allerlei verschillende mensen over de hele wereld, van Nederland waar het bedrijf is op gericht tot aan Amerika.
 In de eerste paar maanden verkochten ze slechts een handvol simulatoren, maar hun passie en doorzettingsvermogen betaalden zich uit. Ze begonnen positieve recensies te krijgen van hun klanten, die onder de indruk waren van de kwaliteit van hun simulatoren. Dit leidde tot mond-tot-mondreclame, waardoor het bedrijf begon te groeien.
 In de jaren die volgden, breidde SiRa zich uit en begon het zich te richten op het ontwikkelen van geavanceerdere en realistischere simulatoren. Het bedrijf trok ook meer medewerkers aan om te helpen bij het ontwerpen, ontwikkelen en produceren van deze nieuwe producten.

@@ -36,7 +36,7 @@ nav {
   background-color: black;
   z-index: 3;
   padding: 1rem;
-  margin-left: -6rem;
+  margin-left: -9rem;
   margin-right: 1rem;
   width: 17vw;
 }
@@ -76,6 +76,16 @@ nav ul {
   justify-content: space-evenly;
   width: 70vw;
   align-items: center;
+}
+
+.icon {
+  margin-top: 2.3vh;
+  height: 7vh;
+}
+
+.cart {
+  margin-top: 2.3vh;
+  height: 7vh;
 }
 
 footer {
@@ -137,13 +147,19 @@ header {
   max-width: 35vw;
 }
 
-.indexheader {
-  background-image: url(./img/pand.png);
-  height: 80vh;
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.informatie-algemeen {
+  border-radius: 3rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 2rem;
+  color: white;
+  height: 50vh;
+  width: 60vw;
+  margin-top: 17rem;
+  margin-left: 20vw;
+  padding: 2rem;
+}
+.grey-background {
+  background-image: url(./img/grey-background.jpg);
 }
 .button {
   padding: 0.75rem;
@@ -203,11 +219,22 @@ form {
   align-items: center;
   width: 100%;
   height: 100vh;
-  background-image: url(./img/ferrari\ cars.jpg);
+  background-image: url(./img/pand.png);
   background-size: cover;
 }
-
+.doelstellinghome{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-image: url(./img/grey-background.jpg);
+  background-size: cover;
+}
 .doelstelling {
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
   height: 70vh;
   width: 60vw;
   background-color: rgba(0, 0, 0, 0.521);
@@ -226,7 +253,7 @@ form {
   justify-content: center;
   font-size: 2rem;
   color: rgb(255, 255, 255);
-  margin: 0 3rem 0 3rem;
+  margin: 0 3rem 2rem 3rem;
 }
 
 .bedrijfges {
@@ -239,8 +266,24 @@ form {
   margin-top: 25rem;
   padding: 2rem;
 }
+
 .par{
   font-size: 1.5rem;
+ }
+
+.retour-div p {
+  margin-bottom: 2rem;
+}
+
+.milieutekst {
+  border-radius: 3rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 1.9rem;
+  color: white;
+  height: 40vh;
+  width: 60vw;
+  margin-top: 25rem;
+  padding: 2rem;
 }
 /*end=Page-Specifiek*/
 /*end=Page-Specifiek*/

@@ -1,3 +1,4 @@
+<!-- Pagina van Bas -->
 <nav>
     <a href="./index.php"><img src="./img/logo.png" alt="" class="nav-logo"></a>
     <ul>
@@ -6,7 +7,7 @@
             <div class="dropdown-content">
                 <a href="./emp.php">Medewerkers</a>
                 <a href="./Bedrijfinfo.php">Bedrijfsinformatie</a>
-                <a href="./">Retour Policy</a>
+                <a href="./retour-policy.php">Retour Policy</a>
                 <a href="./">Milieu</a>
             </div>
         </li>
