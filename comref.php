@@ -18,7 +18,7 @@
             echo "Compliment";
             echo "<br>";
             echo "<br>";
-            echo "Naam: " . $_POST['name'];
+            echo "<p class='test'>Naam: " . $_POST['name'] . "</p>";
             echo "<br>";
             echo "<br>";
             echo "E-Mail: " . $_POST['email'];
