@@ -14,10 +14,10 @@
     <main>
       <section class="klachtpage">
         <section class="klachttxtback">
-        <form action="" method="post">
+        <form action="klachtreview.php" method="post">
         <h1 class= "klachth1">Klacht</h1>
             <form action="" method="post">
-                <label for="naam">Naam:</label>
+                <label for="naam" >Naam:</label>
                 <input type="text" name="naam">
                 <br>
                 <label for="email">Email:</label>

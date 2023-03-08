@@ -264,5 +264,24 @@ form {
   background-color: black;
   color: white;
 }
+.reviewpage{
+  height: 80vh;
+  width: 100vw;
+  background-image: url(./img/backgroundklacht1.jpg);
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.reviewtxtback{
+  height: 70vh;
+  width: 60vw;
+  background-color: rgba(112, 112, 112, 0.555);
+  border-radius: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* klacht */
 /*end=Page-Specifiek*/
