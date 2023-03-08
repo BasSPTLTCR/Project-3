@@ -52,11 +52,12 @@
         }
         if (isset($_POST["confirm"])) {
             $city = $_POST["city"];
+            echo "something";
         }
         $city = "Venlo";
         try
         {
-            $fullQuery = $db->prepare("SELECT firstname, surname, gender, `address`, city, zipcode, email FROM `client`");
+            $fullQuery = $db->prepare("SELECT firstname, surname, gender, `address`, city, zipcode, email FROM `client` WHERE city LIKE '".$_POST['city']."'");
 
         }
         catch(PDOExeption $e) 
