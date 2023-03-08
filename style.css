@@ -78,6 +78,16 @@ nav ul {
   align-items: center;
 }
 
+.icon {
+  margin-top: 2.3vh;
+  height: 7vh;
+}
+
+.cart {
+  margin-top: 2.3vh;
+  height: 7vh;
+}
+
 footer {
   position: absolute;
   bottom: 0;
@@ -133,14 +143,143 @@ header {
 /*end=Algemeen*/
 
 /*Page-Specifiek*/
-.indexheader{
-    background-image: url(./img/pand.png);
-    background-size: auto;
-    background-repeat: no-repeat;
-    height: 40rem;
+.post{
+  max-width: 35vw;
 }
-.tafel {
-  padding-bottom: 10rem;
+
+.informatie-algemeen {
+  border-radius: 3rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 2rem;
+  color: white;
+  height: 50vh;
+  width: 60vw;
+  margin-top: 17rem;
+  margin-left: 20vw;
+  padding: 2rem;
+}
+.grey-background {
+  background-image: url(./img/grey-background.jpg);
+}
+.button {
+  padding: 0.75rem;
+}
+.form {
+    margin-top: 15vh;
+    border-radius: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5) ;
+    width: 40vw;
+    height: 45vh;
+    padding-bottom: 2vh;
+    padding-top: 2vh;
+    color: white;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("./img/car.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 80vh;
+}
+
+.pass {
+  height: 10vh;
+}
+
+.emp {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20vw;
+}
+
+.emplist {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.homepagina {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-image: url(./img/pand.png);
+  background-size: cover;
+}
+.doelstellinghome{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-image: url(./img/grey-background.jpg);
+  background-size: cover;
+}
+.doelstelling {
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  height: 70vh;
+  width: 60vw;
+  background-color: rgba(0, 0, 0, 0.521);
+  border-radius: 2rem;
+}
+
+.doel {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  color: rgb(255, 255, 255);
+}
+
+.doeltekst {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  color: rgb(255, 255, 255);
+  margin: 0 3rem 2rem 3rem;
+}
+
+.bedrijfges {
+  border-radius: 3rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 2rem;
+  color: white;
+  height: 40vh;
+  width: 60vw;
+  margin-top: 25rem;
+  padding: 2rem;
+}
+
+.retour-div p {
+  margin-bottom: 2rem;
+}
+
+.milieutekst {
+  border-radius: 3rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 1.9rem;
+  color: white;
+  height: 40vh;
+  width: 60vw;
+  margin-top: 25rem;
+  padding: 2rem;
 }
 /*end=Page-Specifiek*/
 /*end=Page-Specifiek*/

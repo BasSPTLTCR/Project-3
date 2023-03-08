@@ -9,10 +9,12 @@
 </head>
 <body>
     <?php
-    include "./navlog.php";
+    include "./nav.php";
     ?>
     
     <section class="homepagina">
+    </section>
+    <section class="doelstellinghome">
     <section class="doelstelling">
         <h1 class="doel">Wat is ons doel met SiRa?</h1>
         <br><br>
