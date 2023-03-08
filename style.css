@@ -147,13 +147,19 @@ header {
   max-width: 35vw;
 }
 
-.indexheader {
-  background-image: url(./img/pand.png);
-  height: 80vh;
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.informatie-algemeen {
+  border-radius: 3rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 2rem;
+  color: white;
+  height: 50vh;
+  width: 60vw;
+  margin-top: 17rem;
+  margin-left: 20vw;
+  padding: 2rem;
+}
+.grey-background {
+  background-image: url(./img/grey-background.jpg);
 }
 .button {
   padding: 0.75rem;
@@ -247,7 +253,7 @@ form {
   justify-content: center;
   font-size: 2rem;
   color: rgb(255, 255, 255);
-  margin: 0 3rem 0 3rem;
+  margin: 0 3rem 2rem 3rem;
 }
 
 .bedrijfges {
@@ -258,22 +264,6 @@ form {
   height: 40vh;
   width: 60vw;
   margin-top: 25rem;
-  padding: 2rem;
-}
-
-.retour-pagina{
-  background-image: url(./img/);
-}
-
-.retour-div {
-  border-radius: 3rem;
-  background-color: rgba(0, 0, 0, 0.5);
-  font-size: 2rem;
-  color: white;
-  height: 50vh;
-  width: 60vw;
-  margin-top: 17rem;
-  margin-left: 20vw;
   padding: 2rem;
 }
 

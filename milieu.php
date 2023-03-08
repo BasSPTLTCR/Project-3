@@ -10,12 +10,12 @@
     <title>Milieuvriendelijkheid van SiRa</title>
 </head>
 
-<body>
+<body class="grey-background">
     <?php
     include "./nav.php";
     ?>
-    <header class="indexheader">
-    <p class="milieutekst">Als het gaat om de milieuvriendelijkheid van SiRa, een bedrijf dat gespecialiseerd is in het doorverkopen van
+    <header class="informatie-algemeen">
+    <p class="doeltekst">Als het gaat om de milieuvriendelijkheid van SiRa, een bedrijf dat gespecialiseerd is in het doorverkopen van
         simulator racing spullen, zijn er verschillende factoren om te overwegen.
 
         Een belangrijk aspect is de herkomst van de producten die SiRa doorverkoopt. Als een bedrijf dat zich richt op
