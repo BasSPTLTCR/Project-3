@@ -19,14 +19,15 @@
 session_start();
 
     echo  '<p class="reviewnaam">naam: </p>'; 
-    echo  $_POST["naam"];
+    echo  '<p class="textreview">'. $_POST["naam"] . '</p>';
+    echo "<br>";
     echo "<br>";
     echo '<p class="reviewemail">email: </p>';
-    echo  $_POST["email"];
+    echo  '<p class="textreview">'. $_POST["email"] . '</p>';
     echo "<br>";
     echo "<br>";
     echo '<p class="reviewklacht">klacht: </p>';
-    echo  $_POST["klacht"];
+    echo  '<p class="textreview">'. $_POST["klacht"] . '</p>';
 ?>
    </section>
   </section>

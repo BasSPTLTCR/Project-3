@@ -257,6 +257,7 @@ form {
 }
 .klachth1{
   font-size: 5rem;
+  margin-bottom: 5rem;
 }
 .klachtbtn{
   padding: 1rem;
@@ -284,14 +285,18 @@ form {
   justify-content: center;
 
 }
-.reviewnaam{
-font-size: 2rem;
+.reviewnaam, .reviewemail, .reviewklacht{
+font-size: 2.5rem;
 }
-.reviewemail{
-  font-size: 2rem;
+input[type="text" i] {
+  padding: 2px 3px;
 }
-.reviewklacht{
-  font-size: 2rem;
+input[type="email" i] {
+  padding: 2px 3px;
 }
+.textreview{
+  font-size: 3rem;
+}
+
 /* klacht */
 /*end=Page-Specifiek*/
