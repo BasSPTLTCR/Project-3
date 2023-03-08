@@ -213,11 +213,22 @@ form {
   align-items: center;
   width: 100%;
   height: 100vh;
-  background-image: url(./img/ferrari\ cars.jpg);
+  background-image: url(./img/pand.png);
   background-size: cover;
 }
-
+.doelstellinghome{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-image: url(./img/grey-background.jpg);
+  background-size: cover;
+}
 .doelstelling {
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
   height: 70vh;
   width: 60vw;
   background-color: rgba(0, 0, 0, 0.521);
@@ -243,6 +254,17 @@ form {
   border-radius: 3rem;
   background-color: rgba(0, 0, 0, 0.5);
   font-size: 2rem;
+  color: white;
+  height: 40vh;
+  width: 60vw;
+  margin-top: 25rem;
+  padding: 2rem;
+}
+
+.milieutekst {
+  border-radius: 3rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 1.9rem;
   color: white;
   height: 40vh;
   width: 60vw;
