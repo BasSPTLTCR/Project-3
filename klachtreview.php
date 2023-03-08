@@ -18,14 +18,14 @@
     <?php 
 session_start();
 
-    echo  '<p class="test">naam: </p>'; 
+    echo  '<p class="reviewnaam">naam: </p>'; 
     echo  $_POST["naam"];
     echo "<br>";
-    echo "email: ";
+    echo '<p class="reviewemail">email: </p>';
     echo  $_POST["email"];
     echo "<br>";
     echo "<br>";
-    echo "klacht: ";
+    echo '<p class="reviewklacht">klacht: </p>';
     echo  $_POST["klacht"];
 ?>
    </section>
