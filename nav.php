@@ -8,7 +8,7 @@
                 <a href="./emp.php">Medewerkers</a>
                 <a href="./Bedrijfinfo.php">Bedrijfsinformatie</a>
                 <a href="./">Retour Policy</a>
-                <a href="./">Milieu</a>
+                <a href="./milieu.php">Milieu</a>
             </div>
         </li>
         <li><a href="./">Producten</a></li>
@@ -21,5 +21,6 @@
             </div>
         </li>
     </ul>
-    <a href="./login.php"><img src="./img/inlog.png" alt="" class="log"></a> 
+    <a href="./cart.php"><img src="./img/shop.png" class="cart" alt="" class="log"></a>
+    <a href="./account.php"><img src="./img/user-icon.png" class="icon" alt="" class="log"></a>
 </nav>
