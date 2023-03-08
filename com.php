@@ -15,7 +15,7 @@
     <div class="form-img">
         <section class="form">
             <h1>Complimenten Formulier</h1>
-            <form action="" method="post">
+            <form action="./comref.php" method="post">
                 <label for="name">Naam: </label>
                 <input type="text" name="name">
                 <br>
@@ -24,7 +24,7 @@
                 <br>
                 <label for="com">Compliment: </label>
                 <br>
-                <textarea name="com" cols="30" rows="10"></textarea>
+                <textarea name="com" id="" cols="30" rows="5"></textarea>
                 <br>
                 <input type="submit" value="Verstuur" class="button">
             </form>
