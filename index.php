@@ -9,7 +9,7 @@
 </head>
 <body>
     <?php
-    include "./navlog.php";
+    include "./nav.php";
     ?>
     
     <section class="homepagina">
