@@ -27,6 +27,9 @@
             echo "Compliment: " . $_POST['com'];
             ?>
         </section>
+        <form action="./index.php" method="post">
+            <input type="submit" value="Confirm">
+        </form>
     </div>
     <?php
     include "./footer.php";
