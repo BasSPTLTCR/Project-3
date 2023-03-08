@@ -21,7 +21,6 @@
         try
         {
             $fullQuery = $db->prepare("SELECT firstname, surname FROM `client` WHERE city LIKE '$city'");
-
         }
         catch(PDOExeption $e) 
         {
