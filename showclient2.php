@@ -19,7 +19,7 @@
         #2 querydef
         try
         {
-            $oneQuery = $db->prepare("SELECT city FROM `client`");
+            $oneQuery = $db->prepare("SELECT DISTINCT city FROM `client` ORDER BY `client`.`city` ASC;");
         }
         catch(PDOExeption $e) 
         {
@@ -42,22 +42,21 @@
                 <?php
                     foreach($result as $rij) 
                     {
-                        echo "<option value='".$rij["city"].">".$rij["city"]."</option>";
+                        echo "<option>".$rij["city"]."</option>";
                     }
                 ?>
             </select>
-            <input type="submit" value="confirm">
+            <input type="submit" name="confirm" value="confirm">
         </form>
         <?php
         }
+        
         if (isset($_POST["confirm"])) {
             $city = $_POST["city"];
-            echo "something";
         }
-        $city = "Venlo";
         try
         {
-            $fullQuery = $db->prepare("SELECT firstname, surname, gender, `address`, city, zipcode, email FROM `client` WHERE city LIKE '".$_POST['city']."'");
+            $fullQuery = $db->prepare("SELECT firstname, surname, gender, `address`, city, zipcode, email FROM `client` WHERE city LIKE '$city'");
 
         }
         catch(PDOExeption $e) 
