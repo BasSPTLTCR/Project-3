@@ -143,6 +143,12 @@ header {
 /*end=Algemeen*/
 
 /*Page-Specifiek*/
+.tafel{
+  padding-bottom: 12rem;
+}
+.tafel2{
+  padding-bottom: 11rem;
+}
 .post{
   max-width: 35vw;
 }

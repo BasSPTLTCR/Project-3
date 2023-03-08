@@ -11,7 +11,7 @@
                 <a href="./milieu.php">Milieu</a>
             </div>
         </li>
-        <li><a href="./">Producten</a></li>
+        <li><a href="./producten.php">Producten</a></li>
         <li><a href="./">Leveranciers</a></li>
         <li class="dropdown">
             <a href="#" class="dropbtn">Formulieren</a>
