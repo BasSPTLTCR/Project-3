@@ -250,6 +250,26 @@ form {
   padding: 2rem;
 }
 
+.retour-pagina{
+  background-image: url(./img/);
+}
+
+.retour-div {
+  border-radius: 3rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 2rem;
+  color: white;
+  height: 50vh;
+  width: 60vw;
+  margin-top: 17rem;
+  margin-left: 20vw;
+  padding: 2rem;
+}
+
+.retour-div p {
+  margin-bottom: 2rem;
+}
+
 .milieutekst {
   border-radius: 3rem;
   background-color: rgba(0, 0, 0, 0.5);
