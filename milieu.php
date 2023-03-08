@@ -12,7 +12,7 @@
 
 <body>
     <?php
-    include "./nav-2.php";
+    include "./nav.php";
     ?>
     <header class="indexheader">
     <p class="milieutekst">Als het gaat om de milieuvriendelijkheid van SiRa, een bedrijf dat gespecialiseerd is in het doorverkopen van
