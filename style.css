@@ -286,4 +286,67 @@ form {
   padding: 2rem;
 }
 /*end=Page-Specifiek*/
+/* klacht */
+.klachtpage{
+  height: 80vh;
+  width: 100vw;
+  background-image: url(./img/backgroundklacht1.jpg);
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.klachttxtback{
+  height: 70vh;
+  width: 60vw;
+  background-color: rgba(112, 112, 112, 0.555);
+  border-radius: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.klachth1{
+  font-size: 5rem;
+  margin-bottom: 5rem;
+}
+.klachtbtn{
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: black;
+  color: white;
+}
+.reviewpage{
+  height: 80vh;
+  width: 100vw;
+  background-image: url(./img/backgroundklacht1.jpg);
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.reviewtxtback{
+  height: 70vh;
+  width: 60vw;
+  background-color: rgba(112, 112, 112, 0.555);
+  border-radius: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+.reviewnaam, .reviewemail, .reviewklacht{
+font-size: 2.5rem;
+}
+input[type="text" i] {
+  padding: 2px 3px;
+}
+input[type="email" i] {
+  padding: 2px 3px;
+}
+.textreview{
+  font-size: 3rem;
+}
+
+/* klacht */
 /*end=Page-Specifiek*/
