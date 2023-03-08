@@ -78,6 +78,16 @@ nav ul {
   align-items: center;
 }
 
+.icon {
+  margin-top: 2.3vh;
+  height: 7vh;
+}
+
+.cart {
+  margin-top: 2.3vh;
+  height: 7vh;
+}
+
 footer {
   position: absolute;
   bottom: 0;

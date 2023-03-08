@@ -21,6 +21,6 @@
             </div>
         </li>
     </ul>
-    <a href="./cart.php"><img src="./img/shop.png" alt="" class="log"></a>
-    <a href="./account.php"><img src="./img/user-icon.jpg" alt="" class="log"></a>
+    <a href="./cart.php"><img src="./img/shop.png" class="cart" alt="" class="log"></a>
+    <a href="./account.php"><img src="./img/user-icon.png" class="icon" alt="" class="log"></a>
 </nav>
