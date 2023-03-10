@@ -9,6 +9,8 @@
                 <a href="./Bedrijfinfo.php">Bedrijfsinformatie</a>
                 <a href="./retour-policy.php">Retour Policy</a>
                 <a href="./milieu.php">Milieu</a>
+                <a href="./showclient.php.php">klanten laten zien (Tijdelijk)</a>
+                <a href="./showclient2.php.php">klanten laten zien - filter op woonplaats (Tijdelijk)</a>
             </div>
         </li>
         <li><a href="./">Producten</a></li>
