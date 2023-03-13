@@ -13,7 +13,12 @@
                 <a href="./showclient2.php">klanten laten zien - filter op woonplaats (Tijdelijk)</a>
             </div>
         </li>
-        <li><a href="./">Producten</a></li>
+        <li class="dropdown">
+            <a href="#" class="dropbtn">Producten</a>
+            <div class="dropdown-content">
+                <a href="./productcounter.php">Producten tellen</a>
+            </div>
+        </li>
         <li><a href="./">Leveranciers</a></li>
         <li class="dropdown">
             <a href="#" class="dropbtn">Formulieren</a>
