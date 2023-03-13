@@ -56,7 +56,8 @@
         }
         try
         {
-            $fullQuery = $db->prepare("SELECT firstname, surname, gender, `address`, city, zipcode, email FROM `client` WHERE city LIKE '$city'");
+            $fullQuery = $db->prepare("SELECT firstname, surname, gender, `address`, city, zipcode, email FROM `client` WHERE city LIKE :city");
+            $fullQuery->bindValue(':city', $city);
 
         }
         catch(PDOExeption $e) 
