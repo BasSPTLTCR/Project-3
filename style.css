@@ -143,6 +143,9 @@ header {
 /*end=Algemeen*/
 
 /*Page-Specifiek*/
+.tafel{
+  font-size: 1.6rem;
+}
 .post{
   max-width: 35vw;
 }
