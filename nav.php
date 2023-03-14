@@ -16,7 +16,7 @@
         <li class="dropdown">
             <a href="#" class="dropbtn">Producten</a>
             <div class="dropdown-content">
-                <a href="./productcounter.php">Producten tellen</a>
+                <a href="./productcounter.php">Producten Per Catagorie</a>
             </div>
         </li>
         <li><a href="./">Leveranciers</a></li>

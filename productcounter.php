@@ -36,6 +36,7 @@
 
         #5 show result
         ?>
+        <div class="centertafel">
         <table class="tafel">
             <thead>
                 <th>NumberOfProducts</th>
@@ -52,6 +53,7 @@
 
             </tbody>
         </table>
+        </div>
         <?php
         }
         else
