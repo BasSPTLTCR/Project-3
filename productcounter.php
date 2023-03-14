@@ -51,7 +51,6 @@
                                 echo "<td>" . $rij["CategoryName"] . "</td></tr>";
                             }
                         ?>
-
                     </tbody>
                 </table>
             </div>
