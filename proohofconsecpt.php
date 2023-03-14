@@ -25,8 +25,8 @@
             #2 querydef
             try
             {
-                $fullQuery = $db->prepare("SELECT product.name, product.price, supplier.name FROM `product` INNER JOIN supplier ON product.supplier_id = supplier.id WHERE supplier.name LIKE '%$search%';");
-    
+                $fullQuery = $db->prepare("SELECT product.name AS ProductName, product.price, supplier.name AS SupplierName FROM `product` INNER JOIN supplier ON product.supplier_id = supplier.id WHERE supplier.name LIKE :search;");
+                $fullQuery->bindValue(':search', "%" . $search . "%");
             }
             catch(PDOExeption $e) 
             {
@@ -44,17 +44,17 @@
             ?>
             <table class="tafel2">
                 <thead>
-                    <th>name</th>
+                    <th>ProductName</th>
                     <th>price</th>
-                    <th>supplier</th>
+                    <th>SupplierName</th>
                 </thead>
                 <tbody>
                     <?php
                         foreach($result as $rij) 
                         {
-                            echo "<tr><td>" . $rij["name"] . "</td>";
+                            echo "<tr><td>" . $rij["ProductName"] . "</td>";
                             echo "<td>" . $rij["price"] . "</td>";
-                            echo "<td>" . $rij["supplier.name"] . "</td></tr>";
+                            echo "<td>" . $rij["SupplierName"] . "</td></tr>";
                         }
                     ?>
     
