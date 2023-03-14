@@ -36,23 +36,25 @@
 
         #5 show result
         ?>
-        <div class="centertafel">
-        <table class="tafel">
-            <thead>
-                <th>NumberOfProducts</th>
-                <th>CategoryName</th>
-            </thead>
-            <tbody>
-                <?php
-                    foreach($result as $rij) 
-                    {
-                        echo "<tr><td>" . $rij["NumberOfProducts"] . "</td>";
-                        echo "<td>" . $rij["CategoryName"] . "</td></tr>";
-                    }
-                ?>
+        <div class="tafel-img">
+            <div class="tafeldiv">
+                <table class="tafel">
+                    <thead>
+                        <th>NumberOfProducts</th>
+                        <th>CategoryName</th>
+                    </thead>
+                    <tbody>
+                        <?php
+                            foreach($result as $rij) 
+                            {
+                                echo "<tr><td>" . $rij["NumberOfProducts"] . "</td>";
+                                echo "<td>" . $rij["CategoryName"] . "</td></tr>";
+                            }
+                        ?>
 
-            </tbody>
-        </table>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <?php
         }
