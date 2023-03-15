@@ -55,7 +55,6 @@
                         echo "<td>" . $rij["ProductPrice"] . "</td></tr>";
                     }
                 ?>
-
             </tbody>
         </table>
         <?php
