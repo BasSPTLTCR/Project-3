@@ -11,6 +11,7 @@
                 <a href="./milieu.php">Milieu</a>
                 <a href="./showclient.php">klanten laten zien (Tijdelijk)</a>
                 <a href="./showclient2.php">klanten laten zien - filter op woonplaats (Tijdelijk)</a>
+                <a href="./showorder.php">alle bestellingen laten zien (Tijdelijk)</a>
             </div>
         </li>
         <li><a href="./">Producten</a></li>
