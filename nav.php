@@ -14,7 +14,7 @@
             </div>
         </li>
         <li><a href="./">Producten</a></li>
-        <li><a href="./">Leveranciers</a></li>
+        <li><a href="./leveranciers.php">Leveranciers</a></li>
         <li class="dropdown">
             <a href="#" class="dropbtn">Formulieren</a>
             <div class="dropdown-content">
