@@ -19,7 +19,7 @@
         #2 querydef
         try
         {
-            $fullQuery = $db->prepare("SELECT firstname, surname, gender, `address`, city, zipcode, email, COUNT(orders.id) AS NumberOfOrders FROM `client` LEFT JOIN orders ON client.id = orders.clientid GROUP BY client.id;");
+            $fullQuery = $db->prepare("SELECT client.firstname AS ClientFirstName, client.surname AS ClientSurName, product.name AS ProductName, purchasedate, product.price AS ProductPrice  FROM `orders` INNER JOIN client on orders.clientid = client.id INNER JOIN product on orders.productid = product.id;");
 
         }
         catch(PDOExeption $e) 
@@ -40,28 +40,21 @@
             <thead>
                 <th>firstname</th>
                 <th>surname</th>
-                <th>gender</th>
-                <th>address</th>
-                <th>city</th>
-                <th>zipcode</th>
-                <th>email</th>
-                <th>number of orders</th>
+                <th>ProductName</th>
+                <th>purchasedate</th>
+                <th>ProductPrice</th>
             </thead>
             <tbody>
                 <?php
                     foreach($result as $rij) 
                     {
-                        echo "<tr><td>" . $rij["firstname"] . "</td>";
-                        echo "<td>" . $rij["surname"] . "</td>";
-                        echo "<td>" . $rij["gender"] . "</td>";
-                        echo "<td>" . $rij["address"] . "</td>";
-                        echo "<td>" . $rij["city"] . "</td>";
-                        echo "<td>" . $rij["zipcode"] . "</td>";
-                        echo "<td>" . $rij["email"] . "</td>";
-                        echo "<td>" . $rij["NumberOfOrders"] . "</td></tr>";
+                        echo "<tr><td>" . $rij["ClientFirstName"] . "</td>";
+                        echo "<td>" . $rij["ClientSurName"] . "</td>";
+                        echo "<td>" . $rij["ProductName"] . "</td>";
+                        echo "<td>" . $rij["purchasedate"] . "</td>";
+                        echo "<td>" . $rij["ProductPrice"] . "</td></tr>";
                     }
                 ?>
-
             </tbody>
         </table>
         <?php
