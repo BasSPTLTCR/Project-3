@@ -20,8 +20,8 @@
                 <a href="./productcounter.php">Producten Per Catagorie</a>
             </div>
         </li>
-        <li><a href="./">Producten</a></li>
         <li><a href="./leveranciers.php">Leveranciers</a></li>
+        <li><a href="./producten.php">Producten</a></li>
         <li class="dropdown">
             <a href="#" class="dropbtn">Formulieren</a>
             <div class="dropdown-content">
