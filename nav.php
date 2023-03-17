@@ -15,8 +15,9 @@
             </div>
         </li>
         <li class="dropdown">
-            <a href="./producten.php" class="dropbtn">Producten</a>
+            <a href="#" class="dropbtn">Producten</a>
             <div class="dropdown-content">
+                <a href="./sortcat.php">sortcat()tijdelijk</a>
                 <a href="./productcounter.php">Producten Per Catagorie</a>
             </div>
         </li>
