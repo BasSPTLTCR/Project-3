@@ -42,7 +42,7 @@
                         foreach($result as $rij) 
                         {
                             echo "<div class='card'>";
-                            echo "<div class='card-image'></div>";
+                            echo "<div class='card-image'><img src='./img/product/" . $rij["name"] . ".png' alt=''class='card-image-image'></div>";
                             echo "<h2>" . $rij["name"] . "</h2>";
                             echo "<td>" . $rij["price"] . "</td></tr>";
                             echo "</div>";
