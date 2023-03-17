@@ -45,7 +45,7 @@
                 <th>city</th>
                 <th>zipcode</th>
                 <th>email</th>
-                <th>order count</th>
+                <th>number of orders</th>
             </thead>
             <tbody>
                 <?php
