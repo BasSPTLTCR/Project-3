@@ -143,6 +143,13 @@ header {
 /*end=Algemeen*/
 
 /*Page-Specifiek*/
+.tafel{
+  font-size: 1.6rem;
+  padding-bottom: 12rem;
+}
+.tafel2{
+  padding-bottom: 11rem;
+}
 .tafeldiv {
   margin-left: auto;
   margin-right: auto;
