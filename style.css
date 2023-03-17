@@ -89,7 +89,6 @@ nav ul {
 }
 
 footer {
-  position: absolute;
   bottom: 0;
   background-color: black;
   color: brown;
@@ -369,6 +368,7 @@ input[type="email" i] {
 
 
 /* producten test */
+
 .container {
   display: flex;
   justify-content: center;
@@ -385,21 +385,39 @@ input[type="email" i] {
   flex-basis: 15%;
 }
 
+.card h2, .card p {
+  padding-top: 0.4rem;
+  padding-left: 1rem;
+}
+
 .card p {
   font-size: medium;
 }
 
 .card-image{
   background-color: aqua;
-  height: 170px;
+  height: 200px;
   margin-bottom: 15px;
   background-size: cover;
   border-radius: 15px 15px 0 0;
 }
+
 .card-image-image{
   height: 20vh;
   background-size: cover;
   border-radius: 15px 15px 0 0;
+}
+
+.card-cart {
+  position: absolute;
+  background-color: green;
+  color: white;
+  border-radius: 15px;
+  height: 5vh;
+  width: 7vw;
+  margin-left: 6vw;
+  margin-top: 7vh;
+  font-size: large;
 }
 
 
