@@ -19,7 +19,7 @@
         #2 querydef
         try
         {
-            $oneQuery = $db->prepare("SELECT DISTINCT city FROM `client` ORDER BY `client`.`city` ASC;");
+            $oneQuery = $db->prepare("SELECT DISTINCT product.name AS ProductName FROM `orders` INNER JOIN product ON orders.productid = product.id ORDER BY `ProductName` ASC;");
         }
         catch(PDOExeption $e) 
         {
@@ -36,13 +36,13 @@
         #5 show result
         ?>
         <form action="" method="post">
-        <select name="city" id="city">
-            <option value="">--- Kies een stad ---</option>
+        <select name="ProductName" id="ProductName">
+            <option value="">--- Kies een Product ---</option>
 
                 <?php
                     foreach($result as $rij) 
                     {
-                        echo "<option>".$rij["city"]."</option>";
+                        echo "<option>".$rij["ProductName"]."</option>";
                     }
                 ?>
             </select>
@@ -50,18 +50,17 @@
         </form>
         <?php
         }
-        $city = "";
+        $ProductName = "";
         if (isset($_POST["confirm"])) {
-            $city = $_POST["city"];
+            $ProductName =  $_POST["ProductName"];
         }
-        if ($city == "") {
-            $city = "%";
+        if ($ProductName == "") {
+            $ProductName = "%";
         }
         try
         {
-            $fullQuery = $db->prepare("SELECT firstname, surname, gender, `address`, city, zipcode, email FROM `client` WHERE city LIKE :city");
-            $fullQuery->bindValue(':city', $city);
-
+            $fullQuery = $db->prepare("SELECT client.firstname AS ClientFirstName, client.surname AS ClientSurName, product.name AS ProductName, purchasedate, product.price AS ProductPrice FROM `orders` INNER JOIN client on orders.clientid = client.id INNER JOIN product on orders.productid = product.id WHERE product.name LIKE :ProductName ;");
+            $fullQuery->bindValue(':ProductName', $ProductName);
         }
         catch(PDOExeption $e) 
         {
@@ -81,26 +80,21 @@
             <thead>
                 <th>firstname</th>
                 <th>surname</th>
-                <th>gender</th>
-                <th>address</th>
-                <th>city</th>
-                <th>zipcode</th>
-                <th>email</th>
+                <th>ProductName</th>
+                <th>purchasedate</th>
+                <th>ProductPrice</th>
             </thead>
             <tbody>
                 <?php
                     foreach($result as $rij) 
                     {
-                        echo "<tr><td>" . $rij["firstname"] . "</td>";
-                        echo "<td>" . $rij["surname"] . "</td>";
-                        echo "<td>" . $rij["gender"] . "</td>";
-                        echo "<td>" . $rij["address"] . "</td>";
-                        echo "<td>" . $rij["city"] . "</td>";
-                        echo "<td>" . $rij["zipcode"] . "</td>";
-                        echo "<td>" . $rij["email"] . "</td></tr>";
+                        echo "<tr><td>" . $rij["ClientFirstName"] . "</td>";
+                        echo "<td>" . $rij["ClientSurName"] . "</td>";
+                        echo "<td>" . $rij["ProductName"] . "</td>";
+                        echo "<td>" . $rij["purchasedate"] . "</td>";
+                        echo "<td>" . $rij["ProductPrice"] . "</td></tr>";
                     }
                 ?>
-
             </tbody>
         </table>
         <?php
