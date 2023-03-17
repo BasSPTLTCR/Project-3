@@ -52,11 +52,14 @@
             <input type="submit" name="confirm" value="confirm">
         </form>
         <?php
-        }
-        
-        if (isset($_POST["confirm"])) {
-            $country = $_POST["country"];
-        }
+            }
+            $country= "";
+            if (isset($_POST["country"])) {
+                $country=  $_POST["country"];
+            }
+            if ($country== "") {
+                $country= "%";
+            }
         try
         {
             $fullQuery = $db->prepare("SELECT name, address, country, phonenumber, email FROM `supplier` WHERE country LIKE '$country%'");
