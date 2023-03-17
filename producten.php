@@ -35,22 +35,21 @@
     
             #5 show result
             ?>
-            <table class="tafel2">
-                <thead>
-                    <th>name</th>
-                    <th>price</th>
-                </thead>
-                <tbody>
+            
                     <?php
+                        echo "<section class='container'>";
+
                         foreach($result as $rij) 
                         {
-                            echo "<tr><td>" . $rij["name"] . "</td>";
+                            echo "<div class='card'>";
+                            echo "<div class='card-image'></div>";
+                            echo "<h2>" . $rij["name"] . "</h2>";
                             echo "<td>" . $rij["price"] . "</td></tr>";
+                            echo "</div>";
                         }
+                        echo "</section>";
                     ?>
     
-                </tbody>
-            </table>
             <?php
             }
             else

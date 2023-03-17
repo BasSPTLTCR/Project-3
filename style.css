@@ -367,5 +367,33 @@ input[type="email" i] {
 }
 
 
+
+/* producten test */
+.container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: white;
+  width: 270px;
+  height: 400px;
+  margin: 10px;
+  border-radius: 15px;
+}
+
+.card-image{
+  background-color: aqua;
+  height: 170px;
+  margin-bottom: 15px;
+  background-size: cover;
+  border-radius: 15px 15px 0 0;
+}
+
+
+
+
+
 /* klacht */
 /*end=Page-Specifiek*/
