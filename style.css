@@ -143,8 +143,16 @@ header {
 /*end=Algemeen*/
 
 /*Page-Specifiek*/
+.tafeldiv {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .tafel{
   font-size: 1.6rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10vh;
 }
 .post{
   max-width: 35vw;
