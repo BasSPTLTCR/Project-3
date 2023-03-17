@@ -51,9 +51,13 @@
         <?php
         }
         
-        if (isset($_POST["confirm"])) {
-            $CatName = $_POST["CatName"];
-        }
+    $CatName= "";
+    if (isset($_POST["confirm"])) {
+        $CatName=  $_POST["CatName"];
+    }
+    if ($CatName == "") {
+        $CatName= "%";
+    }
         try
         {
             $fullQuery = $db->prepare("SELECT product.name AS ProductName, product.price AS ProductPrice, category.name AS CategoryName FROM `product` INNER JOIN category on product.category_id = category.id WHERE category.name LIKE :CatName ;");
