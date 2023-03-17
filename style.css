@@ -379,8 +379,14 @@ input[type="email" i] {
   background: white;
   width: 270px;
   height: 400px;
-  margin: 10px;
+  margin: 2rem;
   border-radius: 15px;
+  box-shadow: 10px 18px 32px 0px rgba(0,0,0,0.41);
+  flex-basis: 15%;
+}
+
+.card p {
+  font-size: medium;
 }
 
 .card-image{
