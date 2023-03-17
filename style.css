@@ -396,6 +396,11 @@ input[type="email" i] {
   background-size: cover;
   border-radius: 15px 15px 0 0;
 }
+.card-image-image{
+  height: 20vh;
+  background-size: cover;
+  border-radius: 15px 15px 0 0;
+}
 
 
 
