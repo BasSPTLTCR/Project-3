@@ -49,15 +49,18 @@
             <input type="submit" name="confirm" value="confirm">
         </form>
         <?php
-        }
-        
-        if (isset($_POST["confirm"])) {
-            $city = $_POST["city"];
-        }
+            }
+            $city= "";
+            if (isset($_POST["city"])) {
+                $city=  $_POST["city"];
+            }
+            if ($city== "") {
+                $city= "%";
+            }
         try
         {
             $fullQuery = $db->prepare("SELECT firstname, surname, gender, `address`, city, zipcode, email FROM `client` WHERE city LIKE :city");
-            $fullQuery->bindValue(':city', $city . "%");
+            $fullQuery->bindValue(':city', $city);
 
         }
         catch(PDOExeption $e) 
