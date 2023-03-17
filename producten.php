@@ -35,7 +35,12 @@
     
             #5 show result
             ?>
-            
+            <table class="tafel">
+                <thead>
+                    <th>name</th>
+                    <th>price</th>
+                </thead>
+                <tbody>
                     <?php
                         echo "<section class='container'>";
 
