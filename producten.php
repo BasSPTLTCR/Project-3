@@ -35,7 +35,7 @@
     
             #5 show result
             ?>
-            <table class="tafel2">
+            <table class="tafel">
                 <thead>
                     <th>name</th>
                     <th>price</th>
