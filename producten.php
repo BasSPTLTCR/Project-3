@@ -40,8 +40,13 @@
 
             foreach($result as $rij) 
                 {
+                    $search = "/";
+                    $replace = "-";
+                    $arr = $rij["name"];
+                    $product = (str_replace($search,$replace,$arr));
+
                     echo "<div class='card'>";
-                    echo "<div class='card-image'><img src='./img/product/" . $rij["name"] . ".png' alt=''class='card-image-image'></div>";
+                    echo "<div class='card-image'><img src='./img/product/" . $product . ".png' alt=''class='card-image-image'></div>";
                     echo "<h2>" . $rij["name"] . "</h2>";
                     echo "<p>" . $rij["price"] . "<p>";
                     echo "<button class='card-cart'>Add to cart +</button>";
