@@ -19,7 +19,7 @@
                 #2 querydef
                 try
                 {
-                    $oneQuery = $db->prepare("SELECT DISTINCT city FROM `client` ORDER BY `client`.`city` ASC;");
+                    $oneQuery = $db->prepare("SELECT DISTINCT product.name AS prod FROM `orders` INNER JOIN product on orders.productid = product.id ORDER BY `product`.`name` ASC;");
                 }
                 catch(PDOExeption $e) 
                 {
@@ -36,7 +36,15 @@
                 #5 show result
                 ?>
                 <form action="" method="post">
-                    <input type="text" name="prod" id="prod">
+                    <select name="prod" id="prod">
+                    <option value=" ">Kies een Product</option>
+                    <?php
+                    foreach($result as $rij) 
+                    {
+                        echo "<option>".$rij["prod"]."</option>";
+                    }
+                ?>
+                    </select>
                     <input type="submit" name="confirm" value="confirm">
                 </form>
             <?php
@@ -79,7 +87,7 @@
                         echo "<td>" . $rij["ClientSurName"] . "</td>";
                         echo "<td>" . $rij["ProductName"] . "</td>";
                         echo "<td>" . $rij["purchasedate"] . "</td>";
-                        echo "<td>" . $rij["ProductPrice"] . "</td></tr>";
+                        echo "<td>" . "€" . $rij["ProductPrice"] . "</td></tr>";
                     }
                 ?>
             </tbody>
