@@ -19,7 +19,7 @@
         #2 querydef
         try
         {
-            $oneQuery = $db->prepare("SELECT DISTINCT city FROM `client` ORDER BY `client`.`city` ASC;");
+            $oneQuery = $db->prepare("SELECT name as CatName FROM `category` ORDER BY `CatName` ASC;");
         }
         catch(PDOExeption $e) 
         {
@@ -36,13 +36,13 @@
         #5 show result
         ?>
         <form action="" method="post">
-        <select name="city" id="city">
-            <option value="">--- Kies een stad ---</option>
+        <select name="CatName" id="CatName">
+            <option value="">--- Category ---</option>
 
                 <?php
                     foreach($result as $rij) 
                     {
-                        echo "<option>".$rij["city"]."</option>";
+                        echo "<option>".$rij["CatName"]."</option>";
                     }
                 ?>
             </select>
@@ -50,18 +50,18 @@
         </form>
         <?php
         }
-        $city = "";
-        if (isset($_POST["confirm"])) {
-            $city = $_POST["city"];
-        }
-        if ($city == "") {
-            $city = "%";
-        }
+        
+    $CatName= "";
+    if (isset($_POST["confirm"])) {
+        $CatName=  $_POST["CatName"];
+    }
+    if ($CatName == "") {
+        $CatName= "%";
+    }
         try
         {
-            $fullQuery = $db->prepare("SELECT firstname, surname, gender, `address`, city, zipcode, email FROM `client` WHERE city LIKE :city");
-            $fullQuery->bindValue(':city', $city);
-
+            $fullQuery = $db->prepare("SELECT product.name AS ProductName, product.price AS ProductPrice, category.name AS CategoryName FROM `product` INNER JOIN category on product.category_id = category.id WHERE category.name LIKE :CatName ;");
+            $fullQuery->bindValue(':CatName', $CatName . "%");
         }
         catch(PDOExeption $e) 
         {
@@ -79,30 +79,19 @@
         ?>
         <table class="tafel">
             <thead>
-                <th>firstname</th>
-                <th>surname</th>
-                <th>gender</th>
-                <th>address</th>
-                <th>city</th>
-                <th>zipcode</th>
-                <th>email</th>
-                <th>number of orders</th>
+                <th>ProductName</th>
+                <th>ProductPrice</th>
+                <th>CategoryName</th>
             </thead>
             <tbody>
                 <?php
                     foreach($result as $rij) 
                     {
-                        echo "<tr><td>" . $rij["firstname"] . "</td>";
-                        echo "<td>" . $rij["surname"] . "</td>";
-                        echo "<td>" . $rij["gender"] . "</td>";
-                        echo "<td>" . $rij["address"] . "</td>";
-                        echo "<td>" . $rij["city"] . "</td>";
-                        echo "<td>" . $rij["zipcode"] . "</td>";
-                        echo "<td>" . $rij["email"] . "</td>";
-                        echo "<td>" . $rij["NumberOfOrders"] . "</td></tr>";
+                        echo "<tr><td>" . $rij["ProductName"] . "</td>";
+                        echo "<td>" . $rij["ProductPrice"] . "</td>";
+                        echo "<td>" . $rij["CategoryName"] . "</td></tr>";
                     }
                 ?>
-
             </tbody>
         </table>
         <?php

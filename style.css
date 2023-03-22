@@ -144,7 +144,22 @@ header {
 
 /*Page-Specifiek*/
 .tafel{
-  padding-bottom: 11vh;
+  font-size: 1.6rem;
+  padding-bottom: 12rem;
+}
+.tafel2{
+  padding-bottom: 11rem;
+}
+.tafeldiv {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tafel{
+  font-size: 1.6rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 10vh;
 }
 .post{
   max-width: 35vw;
@@ -350,6 +365,34 @@ input[type="email" i] {
 .textreview{
   font-size: 3rem;
 }
+
+
+
+/* producten test */
+.container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: white;
+  width: 270px;
+  height: 400px;
+  margin: 10px;
+  border-radius: 15px;
+}
+
+.card-image{
+  background-color: aqua;
+  height: 170px;
+  margin-bottom: 15px;
+  background-size: cover;
+  border-radius: 15px 15px 0 0;
+}
+
+
+
 
 
 /* klacht */
