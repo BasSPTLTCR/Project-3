@@ -52,7 +52,7 @@
                         echo "<td>" . $rij["ClientSurName"] . "</td>";
                         echo "<td>" . $rij["ProductName"] . "</td>";
                         echo "<td>" . $rij["purchasedate"] . "</td>";
-                        echo "<td>" . $rij["ProductPrice"] . "</td></tr>";
+                        echo "<td>" . "€" . $rij["ProductPrice"] . "</td></tr>";
                     }
                 ?>
             </tbody>
