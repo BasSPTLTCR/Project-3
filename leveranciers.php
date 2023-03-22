@@ -64,7 +64,7 @@
             }
         try
         {
-            $fullQuery = $db->prepare("SELECT supplier.name, supplier.address, country.name AS country, supplier.phonenumber, supplier.email FROM `supplier` INNER JOIN country on supplier.country_id = country.idcountry WHERE country.name LIKE '$country%' OR supplier.name = :sup");
+            $fullQuery = $db->prepare("SELECT supplier.name, supplier.address, country.name AS country, supplier.phonenumber, supplier.email FROM `supplier` INNER JOIN country on supplier.country_id = country.idcountry WHERE country.name LIKE '$country%' AND supplier.name LIKE :sup");
             $fullQuery->bindValue(':sup', $sup . "%");
         }
         catch(PDOExeption $e) 
