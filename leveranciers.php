@@ -52,11 +52,14 @@
             <input type="submit" name="confirm" value="confirm">
         </form>
         <?php
-        }
-        
-        if (isset($_POST["confirm"])) {
-            $country = $_POST["country"];
-        }
+            }
+            $country= "";
+            if (isset($_POST["country"])) {
+                $country=  $_POST["country"];
+            }
+            if ($country== "") {
+                $country= "%";
+            }
         try
         {
             $fullQuery = $db->prepare("SELECT supplier.name, supplier.address, country.name AS country, supplier.phonenumber, supplier.email FROM `supplier` INNER JOIN country on supplier.country_id = country.idcountry WHERE country.name LIKE '$country%'");
