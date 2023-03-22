@@ -19,7 +19,7 @@
         #2 querydef
         try
         {
-            $fullQuery = $db->prepare("SELECT firstname, surname, gender, `address`, city, zipcode, email FROM `client`");
+            $fullQuery = $db->prepare("SELECT firstname, surname, gender, `address`, city, zipcode, email, COUNT(orders.id) AS NumberOfOrders FROM `client` LEFT JOIN orders ON client.id = orders.clientid GROUP BY client.id;");
 
         }
         catch(PDOExeption $e) 
@@ -45,6 +45,7 @@
                 <th>city</th>
                 <th>zipcode</th>
                 <th>email</th>
+                <th>number of orders</th>
             </thead>
             <tbody>
                 <?php
@@ -56,7 +57,8 @@
                         echo "<td>" . $rij["address"] . "</td>";
                         echo "<td>" . $rij["city"] . "</td>";
                         echo "<td>" . $rij["zipcode"] . "</td>";
-                        echo "<td>" . $rij["email"] . "</td></tr>";
+                        echo "<td>" . $rij["email"] . "</td>";
+                        echo "<td>" . $rij["NumberOfOrders"] . "</td></tr>";
                     }
                 ?>
 

@@ -14,12 +14,13 @@
             </div>
         </li>
         <li class="dropdown">
-            <a href="#" class="dropbtn">Producten</a>
+            <a href="producten.php" class="dropbtn">Producten</a>
             <div class="dropdown-content">
+                <a href="./sortcat.php">sortcat()tijdelijk</a>
                 <a href="./productcounter.php">Producten Per Catagorie</a>
             </div>
         </li>
-        <li><a href="./">Leveranciers</a></li>
+        <li><a href="./leveranciers.php">Leveranciers</a></li>
         <li class="dropdown">
             <a href="#" class="dropbtn">Formulieren</a>
             <div class="dropdown-content">
