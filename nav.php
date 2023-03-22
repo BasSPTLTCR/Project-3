@@ -9,9 +9,8 @@
                 <a href="./Bedrijfinfo.php">Bedrijfsinformatie</a>
                 <a href="./retour-policy.php">Retour Policy</a>
                 <a href="./milieu.php">Milieu</a>
-                <a href="./showclient.php">klanten laten zien (Tijdelijk)</a>
-                <a href="./showclient2.php">klanten laten zien - filter op woonplaats (Tijdelijk)</a>
-                <a href="./showorder.php">alle bestellingen laten zien (Tijdelijk)</a>
+                <a href="./showclient2.php">klanten laten zien (Tijdelijk)</a>
+                <a href="./showorder2.php">alle bestellingen laten zien (Tijdelijk)</a>
             </div>
         </li>
         <li class="dropdown">
