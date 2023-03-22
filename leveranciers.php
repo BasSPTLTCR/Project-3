@@ -21,7 +21,7 @@
         #2 querydef
         try
         {
-            $fullQuery = $db->prepare("SELECT DISTINCT country FROM supplier ORDER BY `supplier`.`country` ASC");
+            $fullQuery = $db->prepare("SELECT DISTINCT country.name AS country FROM `supplier` INNER JOIN country on supplier.country_id = country.idcountry ORDER BY `country`.`name` ASC");
 
         }
         catch(PDOExeption $e) 
@@ -62,7 +62,7 @@
             }
         try
         {
-            $fullQuery = $db->prepare("SELECT name, address, country, phonenumber, email FROM `supplier` WHERE country LIKE '$country%'");
+            $fullQuery = $db->prepare("SELECT supplier.name, supplier.address, country.name AS country, supplier.phonenumber, supplier.email FROM `supplier` INNER JOIN country on supplier.country_id = country.idcountry WHERE country.name LIKE '$country%'");
 
         }
         catch(PDOExeption $e) 
