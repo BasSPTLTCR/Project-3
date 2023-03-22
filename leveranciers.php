@@ -1,48 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>alle wilms met startletter B</title>
+    <title>Leveranciers</title>
 </head>
+
 <body>
     <?php
     include "./nav.php";
     ?>
     <main>
-    <?php
+        <?php
         #1 verbinding database
         require './dbconnenct.php';
 
         #2 querydef
         try
         {
-            $oneQuery = $db->prepare("SELECT DISTINCT city FROM `client` ORDER BY `client`.`city` ASC;");
+            $fullQuery = $db->prepare("SELECT DISTINCT country FROM supplier ORDER BY `supplier`.`country` ASC");
+
         }
         catch(PDOExeption $e) 
         {
             die("Fout bij verbinden met database: " . $e->getMessage());
         }
         #3 querydoen
-        $oneQuery->execute();
+        $fullQuery->execute();
 
         #4 checkresult
-        if ($oneQuery->RowCount() > 0)
+        if ($fullQuery->RowCount() > 0)
         {
-        $result=$oneQuery->FetchAll(PDO::FETCH_ASSOC);
+        $result=$fullQuery->FetchAll(PDO::FETCH_ASSOC);
 
         #5 show result
         ?>
         <form action="" method="post">
-        <select name="city" id="city">
-            <option value="">--- Kies een stad ---</option>
+        <select name="country" id="country">
+            <option value="">--- Kies een land ---</option>
 
                 <?php
                     foreach($result as $rij) 
                     {
-                        echo "<option>".$rij["city"]."</option>";
+                        echo "<option>".$rij["country"]."</option>";
                     }
                 ?>
             </select>
@@ -50,17 +53,16 @@
         </form>
         <?php
             }
-            $city= "";
-            if (isset($_POST["city"])) {
-                $city=  $_POST["city"];
+            $country= "";
+            if (isset($_POST["country"])) {
+                $country=  $_POST["country"];
             }
-            if ($city== "") {
-                $city= "%";
+            if ($country== "") {
+                $country= "%";
             }
         try
         {
-            $fullQuery = $db->prepare("SELECT firstname, surname, gender, `address`, city, zipcode, email, COUNT(orders.id) AS NumberOfOrders FROM `client` LEFT JOIN orders ON client.id = orders.clientid WHERE city LIKE :city GROUP BY client.id;");
-            $fullQuery->bindValue(':city', $city);
+            $fullQuery = $db->prepare("SELECT name, address, country, phonenumber, email FROM `supplier` WHERE country LIKE '$country%'");
 
         }
         catch(PDOExeption $e) 
@@ -79,27 +81,21 @@
         ?>
         <table class="tafel">
             <thead>
-                <th>firstname</th>
-                <th>surname</th>
-                <th>gender</th>
+                <th>name</th>
                 <th>address</th>
-                <th>city</th>
-                <th>zipcode</th>
+                <th>country</th>
+                <th>phonenumber</th>
                 <th>email</th>
-                <th>number of orders</th>
             </thead>
             <tbody>
                 <?php
                     foreach($result as $rij) 
                     {
-                        echo "<tr><td>" . $rij["firstname"] . "</td>";
-                        echo "<td>" . $rij["surname"] . "</td>";
-                        echo "<td>" . $rij["gender"] . "</td>";
+                        echo "<tr><td>" . $rij["name"] . "</td>";
                         echo "<td>" . $rij["address"] . "</td>";
-                        echo "<td>" . $rij["city"] . "</td>";
-                        echo "<td>" . $rij["zipcode"] . "</td>";
-                        echo "<td>" . $rij["email"] . "</td>";
-                        echo "<td>" . $rij["NumberOfOrders"] . "</td></tr>";
+                        echo "<td>" . $rij["country"] . "</td>";
+                        echo "<td>" . $rij["phonenumber"] . "</td>";
+                        echo "<td>" . $rij["email"] . "</td></tr>";
                     }
                 ?>
 
@@ -118,4 +114,5 @@
     include "./footer.php";
     ?>
 </body>
+
 </html>
