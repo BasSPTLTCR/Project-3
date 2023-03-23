@@ -48,7 +48,7 @@
                     echo "<div class='card'>";
                     echo "<div class='card-image'><img src='./img/product/" . $product . ".png' alt=''class='card-image-image'></div>";
                     echo "<h2>" . $rij["name"] . "</h2>";
-                    echo "<p>" . $rij["price"] . "<p>";
+                    echo "<p>" ."€" .  $rij["price"] . "<p>";
                     echo "<button class='card-cart'>Add to cart +</button>";
                     echo "</div>";
                 }
