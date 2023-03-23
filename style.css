@@ -395,6 +395,9 @@ input[type="email" i] {
 }
 
 .card-image{
+  position: flex;
+  justify-content: center;
+  align-items: center;
   background-color: aqua;
   height: 200px;
   margin-bottom: 15px;
@@ -403,8 +406,8 @@ input[type="email" i] {
 }
 
 .card-image-image{
-  
-  width: 100%;
+  max-height: 20vh;
+  max-width: 100%;
   background-size: cover;
   border-radius: 15px 15px 0 0;
 }
