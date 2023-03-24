@@ -20,10 +20,10 @@
     #0a komt via frm?
     if (! isset($_POST["voegtoe"])) {
         echo "<h2>niet juiste mannier</h2>";
-        header("Refresh:3; url=frm-insertbrewer.php");
+        header("Refresh:3; url=frm-suplieradding.php");
     }
     else {
-        require './connectbieren.php';
+        require './dbconnenct.php';
         $supname = test_input($_POST["supname"]);
         $supaddress = test_input($_POST["supaddress"]);
         $supcountry = test_input($_POST["supcountry"]);
@@ -36,8 +36,8 @@
         #1-1 komt id voor?
         try
         {
-            $chkbrewname = $db->prepare("SELECT `name` FROM `supplier` WHERE `name` = :supname");
-            $chkbrewname->bindValue(':supname', $supname);
+            $chksupname = $db->prepare("SELECT `name` FROM `supplier` WHERE `name` = :supname");
+            $chksupname->bindValue(':supname', $supname);
         }
         catch(PDOExeption $e) 
         {
@@ -48,8 +48,8 @@
         }
         try
         {
-            $chkbrewname = $db->prepare("SELECT `email` FROM `supplier` WHERE `email` = :supEmail");
-            $chkbrewname->bindValue(':supEmail', $supEmail);
+            $chksupEmail = $db->prepare("SELECT `email` FROM `supplier` WHERE `email` = :supEmail");
+            $chksupEmail->bindValue(':supEmail', $supEmail);
         }
         catch(PDOExeption $e) 
         {
@@ -60,8 +60,8 @@
         }
         try
         {
-            $chkbrewname = $db->prepare("SELECT `phonenumber` FROM `supplier` WHERE `phonenumber` = :supPhonenr");
-            $chkbrewname->bindValue(':supPhonenr', $supPhonenr);
+            $chkPhonenr = $db->prepare("SELECT `phonenumber` FROM `supplier` WHERE `phonenumber` = :supPhonenr");
+            $chkPhonenr->bindValue(':supPhonenr', $supPhonenr);
         }
         catch(PDOExeption $e) 
         {
@@ -72,7 +72,7 @@
         }
         #2 querydef
         ?>
-        <form action="./frm-insertbrewer-read.php" method="post">
+        <form action="./do-suplieradding.php" method="post">
         <input type="text" name="supname" value="<?php echo $supname ?>" readonly>
         <input type="text" name="supaddress" value="<?php echo $supaddress ?>" >
         <input type="text" name="supcountry" value="<?php echo $supcountry ?>" >
