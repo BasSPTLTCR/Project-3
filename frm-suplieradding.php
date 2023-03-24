@@ -9,11 +9,11 @@
 <body>
     <h2>Geef de gegevens van de brouwer op</h2>
     <form action="./chk-insertbrewer.php" method="post">
-        <input type="text" name="name" required>
-        <input type="text" name="address" required>
-        <input type="text" name="country" required>
-        <input type="text" name="Phonenr" required>
-        <input type="email" name="Email" required>
+        <input type="text" name="supname" required>
+        <input type="text" name="supaddress" required>
+        <input type="text" name="supcountry" required>
+        <input type="text" name="supPhonenr" required>
+        <input type="email" name="supEmail" required>
         <input type="submit" value="voegtoe" name="voegtoe">
     </form>
 </body>

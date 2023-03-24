@@ -24,53 +24,60 @@
     }
     else {
         require './connectbieren.php';
-        $brewname = test_input($_POST["brewname"]);
-        $brewcountry = test_input($_POST["brewcountry"]);
+        $supname = test_input($_POST["supname"]);
+        $supaddress = test_input($_POST["supaddress"]);
+        $supcountry = test_input($_POST["supcountry"]);
+        $supPhonenr = test_input($_POST["supPhonenr"]);
+        $supEmail = test_input($_POST["supEmail"]);
 
         #0b vraag gegeven voor voegtoe
-        // // $brewid = filter_input(INPUT_POST, "brewid", FILTER_SANITIZE_NUMBER_INT);
-        // $brewid = filter_input(INPUT_POST, "brewid", FILTER_SANITIZE_NUMBER_INT);
-        // // $brewname = filter_input(INPUT_POST, "brewname", FILTER_SANITIZE_STRING);
-        // $brewname = filter_input(INPUT_POST, "brewname", FILTER_SANITIZE_STRING);
-        // // $brewcountry = filter_input(INPUT_POST, "brewcountry", FILTER_SANITIZE_STRING);
-        // $brewcountry = filter_input(INPUT_POST, "brewcountry", FILTER_SANITIZE_STRING);
 
         #1 control gegevens
         #1-1 komt id voor?
         try
         {
-            $chkbrewnr = $db->prepare("SELECT brouwcode FROM `brouwer` WHERE brouwcode = :brewid");
-            $chkbrewnr->bindValue(':brewid', $brewid);
-
-        }
-        catch(PDOExeption $e) 
-        {
-            die("Fout bij verbinden met database: " . $e->getMessage());
-        }
-        if ($chkbrewnr->RowCount() < 0) {
-            echo "brouwcode bestaal al";
-        }
-        try
-        {
-            $chkbrewname = $db->prepare("SELECT brouwcode FROM `brouwer` WHERE brouwcode = :brewname");
-            $chkbrewname->bindValue(':brewname', $brewname);
+            $chkbrewname = $db->prepare("SELECT `name` FROM `supplier` WHERE `name` = :supname");
+            $chkbrewname->bindValue(':supname', $supname);
         }
         catch(PDOExeption $e) 
         {
             die("Fout bij verbinden met database: " . $e->getMessage());
         }
         if ($chkbrewname->RowCount() < 0) {
-            echo "brouwcode bestaal al";
+            echo "Leveranciernaam bestaal al";
         }
-        if (strlen($brewcountry) > 4) {
-            echo "Te lang 4 = max";
+        try
+        {
+            $chkbrewname = $db->prepare("SELECT `email` FROM `supplier` WHERE `email` = :supEmail");
+            $chkbrewname->bindValue(':supEmail', $supEmail);
+        }
+        catch(PDOExeption $e) 
+        {
+            die("Fout bij verbinden met database: " . $e->getMessage());
+        }
+        if ($chkbrewname->RowCount() < 0) {
+            echo "Leverancieremail bestaal al";
+        }
+        try
+        {
+            $chkbrewname = $db->prepare("SELECT `phonenumber` FROM `supplier` WHERE `phonenumber` = :supPhonenr");
+            $chkbrewname->bindValue(':supPhonenr', $supPhonenr);
+        }
+        catch(PDOExeption $e) 
+        {
+            die("Fout bij verbinden met database: " . $e->getMessage());
+        }
+        if ($chkbrewname->RowCount() < 0) {
+            echo "LeveranciereTelefoon Nummer al ingebruik";
         }
         #2 querydef
         ?>
         <form action="./frm-insertbrewer-read.php" method="post">
-        <input type="number" name="brewid" value="<?php echo $brewid ?>" readonly>
-        <input type="text" name="brewname" value="<?php echo $brewname ?>" readonly>
-        <input type="text" name="brewcountry" value="<?php echo $brewcountry ?>" readonly>
+        <input type="text" name="supname" value="<?php echo $supname ?>" readonly>
+        <input type="text" name="supaddress" value="<?php echo $supaddress ?>" >
+        <input type="text" name="supcountry" value="<?php echo $supcountry ?>" >
+        <input type="text" name="supPhonenr" value="<?php echo $supPhonenr ?>" >
+        <input type="email" name="supEmail" value="<?php echo $supEmail ?>" >
         <input type="submit" value="annul" name="annul">
         <input type="submit" value="confirm" name="confirm">
     </form>
