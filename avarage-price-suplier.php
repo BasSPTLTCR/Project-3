@@ -21,7 +21,7 @@
         #2 querydef
         try
         {
-            $fullQuery = $db->prepare("SELECT DISTINCT country FROM supplier ORDER BY `supplier`.`country` ASC");
+            $fullQuery = $db->prepare("SELECT 'name' FROM country ORDER BY `country`.`name` ASC");
 
         }
         catch(PDOExeption $e) 
@@ -65,7 +65,7 @@
             }
         try
         {
-            $fullQuery = $db->prepare("SELECT supplier.name, supplier.address, supplier.country, supplier.phonenumber, supplier.email, sum(product.price)/ COUNT(product.id) AS avg FROM `supplier` LEFT JOIN product on supplier.id = product.supplier_id WHERE supplier.country LIKE '$country' GROUP BY `supplier_id`");
+            $fullQuery = $db->prepare("SELECT supplier.name, supplier.address, country.name AS countryname, supplier.phonenumber, supplier.email, sum(product.price)/ COUNT(product.id) AS avg FROM `supplier` INNER JOIN country on supplier.country_id = country.idcountry LEFT JOIN product on supplier.id = product.supplier_id GROUP BY supplier.name;");
         }
         catch(PDOExeption $e) 
         {
@@ -94,12 +94,15 @@
                 <?php
                     foreach($result as $rij) 
                     {
+                        if ($rij["avg"] != "") {
+                            $rij["avg"] = "€" . $rij["avg"];
+                        }
                         echo "<tr><td>" . $rij["name"] . "</td>";
                         echo "<td>" . $rij["address"] . "</td>";
-                        echo "<td>" . $rij["country"] . "</td>";
+                        echo "<td>" . $rij["countryname"] . "</td>";
                         echo "<td>" . $rij["phonenumber"] . "</td>";
                         echo "<td>" . $rij["email"] . "</td>";
-                        echo "<td>" . "€" . $rij["avg"] . "</td></tr>";
+                        echo "<td>" . $rij["avg"] . "</td></tr>";
                     }
                 ?>
 
