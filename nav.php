@@ -11,6 +11,7 @@
                 <a href="./milieu.php">Milieu</a>
                 <a href="./showclient2.php">klanten laten zien (Tijdelijk)</a>
                 <a href="./showorder3.php">alle bestellingen laten zien (Tijdelijk)</a>
+                <a href="./showorder3.php">alle bestellingen laten zien (Tijdelijk)</a>
             </div>
         </li>
         <li class="dropdown">
