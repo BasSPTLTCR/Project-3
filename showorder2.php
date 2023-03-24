@@ -16,11 +16,47 @@
         #1 verbinding database
         require './dbconnenct.php';
 
+                #2 querydef
+                try
+                {
+                    $oneQuery = $db->prepare("SELECT DISTINCT product.name AS prod FROM `orders` INNER JOIN product on orders.productid = product.id ORDER BY `product`.`name` ASC;");
+                }
+                catch(PDOExeption $e) 
+                {
+                    die("Fout bij verbinden met database: " . $e->getMessage());
+                }
+                #3 querydoen
+                $oneQuery->execute();
+        
+                #4 checkresult
+                if ($oneQuery->RowCount() > 0)
+                {
+                $result=$oneQuery->FetchAll(PDO::FETCH_ASSOC);
+        
+                #5 show result
+                ?>
+                <form action="" method="post">
+                    <select name="prod" id="prod">
+                    <option value=" ">Kies een Product</option>
+                    <?php
+                    foreach($result as $rij) 
+                    {
+                        echo "<option>".$rij["prod"]."</option>";
+                    }
+                ?>
+                    </select>
+                    <input type="submit" name="confirm" value="confirm">
+                </form>
+            <?php
+            if (isset($_POST["confirm"])) {
+                $prod = $_POST["prod"];
+            }
         #2 querydef
         try
         {
-            $fullQuery = $db->prepare("SELECT client.firstname AS ClientFirstName, client.surname AS ClientSurName, product.name AS ProductName, purchasedate, product.price AS ProductPrice  FROM `orders` INNER JOIN client on orders.clientid = client.id INNER JOIN product on orders.productid = product.id;");
-
+            $fullQuery = $db->prepare("SELECT client.firstname AS ClientFirstName, client.surname AS ClientSurName, product.name AS ProductName, orders.purchasedate, product.price AS ProductPrice FROM `orders` INNER JOIN client on orders.clientid = client.id INNER JOIN product on orders.productid = product.id WHERE product.name LIKE :prod");
+            $fullQuery->bindValue(':prod', $prod . "%");
+            
         }
         catch(PDOExeption $e) 
         {
@@ -62,7 +98,7 @@
         else
         {
             echo "<h2>Sorry,Geen resultaat gevonden</h2>";
-        }
+        }}
         #6 geen result melding
         ?>
     </main>

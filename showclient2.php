@@ -49,17 +49,17 @@
             <input type="submit" name="confirm" value="confirm">
         </form>
         <?php
-            }
-            $city= "";
-            if (isset($_POST["city"])) {
-                $city=  $_POST["city"];
-            }
-            if ($city== "") {
-                $city= "%";
-            }
+        }
+        $city = "";
+        if (isset($_POST["confirm"])) {
+            $city = $_POST["city"];
+        }
+        if ($city == "") {
+            $city = "%";
+        }
         try
         {
-            $fullQuery = $db->prepare("SELECT firstname, surname, gender, `address`, city, zipcode, email, COUNT(orders.id) AS NumberOfOrders FROM `client` LEFT JOIN orders ON client.id = orders.clientid WHERE city LIKE :city GROUP BY client.id;");
+            $fullQuery = $db->prepare("SELECT firstname, surname, gender, `address`, city, zipcode, email , COUNT(orders.id) AS NumberOfOrders FROM `client` LEFT JOIN orders ON client.id = orders.clientid WHERE city LIKE :city GROUP BY client.id;");
             $fullQuery->bindValue(':city', $city);
 
         }
