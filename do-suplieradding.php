@@ -56,11 +56,11 @@
     $supaddress = isset($_POST["supaddress"]);
     $supPhonenr = isset($_POST["supPhonenr"]);
     $supEmail = isset($_POST["supEmail"]);
-    $insquery = $db->prepare("INSERT INTO supplier (id, name, address, country_id, phonenumber, email) VALUES (NULL, :supname, :supaddress, :supPhonenr, :supcountryid, :supEmail)"); 
+    $insquery = $db->prepare("INSERT INTO supplier (id, name, address, country_id, phonenumber, email) VALUES (NULL, :supname, :supaddress, :supcountryid, :supPhonenr, :supEmail)"); 
     $insquery->bindValue("supname", $supname);
     $insquery->bindValue("supaddress", $supaddress);
     $insquery->bindValue("supPhonenr", $supPhonenr);
-    $insquery->bindValue("supcountryid", $idcountry);
+    $insquery->bindValue("supcountryid", $supcountryid);
     $insquery->bindValue("supEmail", $supEmail);
             $insquery   ->execute();
     ?>
