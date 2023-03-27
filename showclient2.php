@@ -59,7 +59,7 @@
         }
         try
         {
-            $fullQuery = $db->prepare("SELECT firstname, surname, gender, `address`, city, zipcode, email , COUNT(orders.id) AS NumberOfOrders FROM `client` LEFT JOIN orders ON client.id = orders.clientid WHERE city LIKE :city GROUP BY client.id;");
+            $fullQuery = $db->prepare("SELECT firstname, surname, gender, `address`, city, zipcode, email , COUNT(orders.id) AS NumberOfOrders FROM `client` LEFT JOIN orders ON client.id = orders.client_id WHERE city LIKE :city GROUP BY client.id;");
             $fullQuery->bindValue(':city', $city);
 
         }
