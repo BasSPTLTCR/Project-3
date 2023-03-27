@@ -65,7 +65,7 @@
             }
         try 
         {
-            $fullQuery = $db->prepare("SELECT supplier.name, supplier.address, country.name AS countryname, supplier.phonenumber, supplier.email, sum(product.price)/ COUNT(product.id) AS avg FROM `supplier` INNER JOIN country on supplier.country_id = country.idcountry LEFT JOIN product on supplier.id = product.supplier_id WHERE country.name LIKE :country GROUP BY supplier.name;");
+            $fullQuery = $db->prepare("SELECT supplier.name, supplier.address, country.name AS countryname, supplier.phonenumber, supplier.email, sum(product.price)/ COUNT(product.id) AS avg FROM `supplier` INNER JOIN country on supplier.country_id = country.idcountry LEFT JOIN product on supplier.id = product.supplier_id WHERE country.name LIKE :country AND supplier.name LIKE :sup GROUP BY supplier.name;");
             $fullQuery->bindValue(':sup', $sup);
             $fullQuery->bindValue(':country', $country);
         }
