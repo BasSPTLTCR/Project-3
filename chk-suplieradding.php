@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>verificatie brouwer</title>
+    <link rel="stylesheet" href="style.css">
+    <title>verificatie Leverancier</title>
 </head>
 <body>
+<?php
+    include "./nav.php";
+    ?>
     <?php
     
 
@@ -43,7 +47,7 @@
         {
             die("Fout bij verbinden met database: " . $e->getMessage());
         }
-        if ($chkbrewname->RowCount() < 0) {
+        if ($chksupname->RowCount() < 0) {
             echo "Leveranciernaam bestaal al";
         }
         try
@@ -55,7 +59,7 @@
         {
             die("Fout bij verbinden met database: " . $e->getMessage());
         }
-        if ($chkbrewname->RowCount() < 0) {
+        if ($chksupEmail->RowCount() < 0) {
             echo "Leverancieremail bestaal al";
         }
         try
@@ -67,7 +71,7 @@
         {
             die("Fout bij verbinden met database: " . $e->getMessage());
         }
-        if ($chkbrewname->RowCount() < 0) {
+        if ($chkPhonenr->RowCount() < 0) {
             echo "LeveranciereTelefoon Nummer al ingebruik";
         }
         #2 querydef
@@ -83,6 +87,9 @@
     </form>
     <?php
     }
+    ?>
+    <?php
+    include "./footer.php";
     ?>
 </body>
 </html>

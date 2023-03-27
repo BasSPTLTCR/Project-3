@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Leverancier toevoegen</title>
 </head>
 <body>
+<?php
+    include "./nav.php";
+    ?>
 <?php
     if (isset($_POST["annul"])) {
         echo "<h2>Niet toevoegen</h2>";
@@ -44,19 +48,24 @@
         foreach($result as $rij) 
                     {
                         $supcountryid = $rij["idcountry"];
-                        echo $supcountryid;
                     }
         }
+        echo $supcountryid;
     #maak hieronder de insert qry
-    // $brewid = isset($_POST["brewid"]);
-    // $brewname = isset($_POST["brewname"]);
-    // $brewcountry = isset($_POST["brewcountry"]);
-    // $insquery = $db->prepare("INSERT INTO brouwer (brouwcode, naam, land) 
-    //             VALUES (:brewid,  :brewname, :brewcountry)"); 
-    // $insquery->bindValue("brewid", $brewid);
-    // $insquery->bindValue("brewname", $brewname);
-    // $insquery->bindValue("brewcountry", $brewcountry);
-    //         $insquery   ->execute();
+    $supname = isset($_POST["supname"]);
+    $supaddress = isset($_POST["supaddress"]);
+    $supPhonenr = isset($_POST["supPhonenr"]);
+    $supEmail = isset($_POST["supEmail"]);
+    $insquery = $db->prepare("INSERT INTO supplier (id, name, address, country_id, phonenumber, email) VALUES (NULL, :supname, :supaddress, :supPhonenr, :supcountryid, :supEmail)"); 
+    $insquery->bindValue("supname", $supname);
+    $insquery->bindValue("supaddress", $supaddress);
+    $insquery->bindValue("supPhonenr", $supPhonenr);
+    $insquery->bindValue("supcountryid", $idcountry);
+    $insquery->bindValue("supEmail", $supEmail);
+            $insquery   ->execute();
+    ?>
+    <?php
+    include "./footer.php";
     ?>
 </body>
 </html>
