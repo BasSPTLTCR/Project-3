@@ -36,19 +36,30 @@
                 #5 show result
                 ?>
                 <form action="" method="post">
-                    <input type="text" name="year" id="year">
+                    <select name="prod" id="prod">
+                    <option value=" ">Kies een Product</option>
+                    <?php
+                    foreach($result as $rij) 
+                    {
+                        echo "<option>".$rij["prod"]."</option>";
+                    }
+                ?>
+                    </select>
                     <input type="submit" name="confirm" value="confirm">
                 </form>
             <?php
             $year = '2000-01-01';
             if (isset($_POST["confirm"])) {
-                $year = $_POST["year"] . "-01-01";
+                $prod = $_POST["prod"];
+            }
+            if ($prod == "") {
+                $prod = "%";
             }
         #2 querydef
         try
         {
-            $fullQuery = $db->prepare("SELECT client.firstname AS ClientFirstName, client.surname AS ClientSurName, orders.purchasedate, COUNT(orderlisting.id) AS orderlist FROM `orders` INNER JOIN client on orders.client_id = client.id INNER JOIN orderlisting on orders.id = orderlisting.order_id WHERE orders.purchasedate >= :year GROUP BY orderlisting.order_id");
-            $fullQuery->bindValue(':year', $year);
+            $fullQuery = $db->prepare("SELECT orderlisting.id AS id , product.name AS prodname FROM `orderlisting` INNER JOIN product on orderlisting.product_id = product.id WHERE product.name LIKE :prod");
+            $fullQuery->bindValue(':prod', $prod);
             
         }
         catch(PDOExeption $e) 
@@ -67,19 +78,15 @@
         ?>
         <table class="tafel">
             <thead>
-                <th>firstname</th>
-                <th>surname</th>    
-                <th>PurchaseDate</th>
-                <th>Number of orderlists</th>
+                <th>orderlist_id</th>
+                <th>Product</th>
             </thead>
             <tbody>
                 <?php
                     foreach($result as $rij) 
                     {
-                        echo "<tr><td>" . $rij["ClientFirstName"] . "</td>";
-                        echo "<td>" . $rij["ClientSurName"] . "</td>";
-                        echo "<td>" . $rij["purchasedate"] . "</td>";
-                        echo "<td>" . $rij["orderlist"] . "</td></tr>";
+                        echo "<tr><td>" . $rij["id"] . "</td>";
+                        echo "<td>" . $rij["prodname"] . "</td></tr>";
                     }
                 ?>
             </tbody>
