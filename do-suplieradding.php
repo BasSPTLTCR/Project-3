@@ -50,12 +50,15 @@
                         $supcountryid = $rij["idcountry"];
                     }
         }
-        echo $supcountryid;
     #maak hieronder de insert qry
-    $supname = isset($_POST["supname"]);
-    $supaddress = isset($_POST["supaddress"]);
-    $supPhonenr = isset($_POST["supPhonenr"]);
-    $supEmail = isset($_POST["supEmail"]);
+    $supname = $_POST["supname"];
+    $supaddress = $_POST["supaddress"];
+    $supPhonenr = $_POST["supPhonenr"];
+    $supEmail = $_POST["supEmail"];
+    echo $supname;
+    echo $supaddress;
+    echo $supPhonenr;
+    echo $supEmail;
     $insquery = $db->prepare("INSERT INTO supplier (id, name, address, country_id, phonenumber, email) VALUES (NULL, :supname, :supaddress, :supcountryid, :supPhonenr, :supEmail)"); 
     $insquery->bindValue("supname", $supname);
     $insquery->bindValue("supaddress", $supaddress);
