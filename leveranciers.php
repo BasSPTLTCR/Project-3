@@ -49,7 +49,6 @@
                     }
                 ?>
             </select>
-            <input type="text" name="sup" id="sup">
             <input type="submit" name="confirm" value="confirm">
         </form>
         <?php
@@ -57,15 +56,14 @@
             $country= "";
             if (isset($_POST["country"])) {
                 $country=  $_POST["country"];
-                $sup=  $_POST["sup"];
             }
-            if ($country== "") {
-                $country= "%";
+            if (! isset($_POST["country"])) {
+                $country = "%";
             }
-        try
+        try 
         {
-            $fullQuery = $db->prepare("SELECT supplier.name, supplier.address, country.name AS country, supplier.phonenumber, supplier.email FROM `supplier` INNER JOIN country on supplier.country_id = country.idcountry WHERE country.name LIKE '$country%' AND supplier.name LIKE :sup");
-            $fullQuery->bindValue(':sup', $sup . "%");
+            $fullQuery = $db->prepare("SELECT supplier.name, supplier.address, country.name AS countryname, supplier.phonenumber, supplier.email, sum(product.price)/ COUNT(product.id) AS avg FROM `supplier` INNER JOIN country on supplier.country_id = country.idcountry LEFT JOIN product on supplier.id = product.supplier_id WHERE country.name LIKE :country GROUP BY supplier.name;");
+            $fullQuery->bindValue(':country', $country);
         }
         catch(PDOExeption $e) 
         {
@@ -88,16 +86,21 @@
                 <th>country</th>
                 <th>phonenumber</th>
                 <th>email</th>
+                <th>avarage</th>
             </thead>
             <tbody>
                 <?php
                     foreach($result as $rij) 
                     {
+                        if ($rij["avg"] != "") {
+                            $rij["avg"] = "€" . $rij["avg"];
+                        }
                         echo "<tr><td>" . $rij["name"] . "</td>";
                         echo "<td>" . $rij["address"] . "</td>";
-                        echo "<td>" . $rij["country"] . "</td>";
+                        echo "<td>" . $rij["countryname"] . "</td>";
                         echo "<td>" . $rij["phonenumber"] . "</td>";
-                        echo "<td>" . $rij["email"] . "</td></tr>";
+                        echo "<td>" . $rij["email"] . "</td>";
+                        echo "<td>" . $rij["avg"] . "</td></tr>";
                     }
                 ?>
 
@@ -116,5 +119,5 @@
     include "./footer.php";
     ?>
 </body>
-<!-- test -->
+
 </html>

@@ -27,7 +27,6 @@
             <a href="leveranciers.php" class="dropbtn">Leveranciers</a>
             <div class="dropdown-content">
                 <a href="./levperland.php">Leveranciers per land</a>
-                <a href="./avarage-price-suplier.php">Gemiddelde Prijs Per Leverancier</a>
             </div>
         </li>
         <li class="dropdown">
