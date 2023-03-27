@@ -21,7 +21,7 @@
         #2 querydef
         try
         {
-            $fullQuery = $db->prepare("SELECT 'name' FROM country ORDER BY `country`.`name` ASC");
+            $fullQuery = $db->prepare("SELECT DISTINCT name FROM country ORDER BY `country`.`name` ASC;");
 
         }
         catch(PDOExeption $e) 

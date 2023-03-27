@@ -33,7 +33,7 @@
         }
         try {
             $fullQuery = $db->prepare("SELECT country.name, country.code FROM `country` WHERE country.name LIKE :countname");
-            $fullQuery->bindValue(':countname', $countname);
+            $fullQuery->bindValue(':countname', $countname . "%");
         } catch (PDOExeption $e) {
             die("Fout bij verbinden met database: " . $e->getMessage());
         }
