@@ -55,7 +55,6 @@
             if ($prod == "") {
                 $prod = "%";
             }
-            echo $prod;
         #2 querydef
         try
         {
