@@ -45,16 +45,20 @@
                     }
                 ?>
                     </select>
+                    <input type="text" name="year" id="year">
                     <input type="submit" name="confirm" value="confirm">
                 </form>
             <?php
+            $year = '2000-01-01';
             if (isset($_POST["confirm"])) {
+                $year = $_POST["year"] . "-01-01";
                 $prod = $_POST["prod"];
             }
         #2 querydef
         try
         {
-            $fullQuery = $db->prepare("SELECT client.firstname AS ClientFirstName, client.surname AS ClientSurName, product.name AS ProductName, orders.purchasedate, product.price AS ProductPrice FROM `orders` INNER JOIN client on orders.clientid = client.id INNER JOIN product on orders.productid = product.id WHERE product.name LIKE :prod");
+            $fullQuery = $db->prepare("SELECT client.firstname AS ClientFirstName, client.surname AS ClientSurName, product.name AS ProductName, orders.purchasedate, product.price AS ProductPrice FROM `orders` INNER JOIN client on orders.clientid = client.id INNER JOIN product on orders.productid = product.id WHERE orders.purchasedate >= :year AND product.name LIKE :prod");
+            $fullQuery->bindValue(':year', $year);
             $fullQuery->bindValue(':prod', $prod . "%");
             
         }

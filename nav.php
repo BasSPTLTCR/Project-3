@@ -10,7 +10,8 @@
                 <a href="./retour-policy.php">Retour Policy</a>
                 <a href="./milieu.php">Milieu</a>
                 <a href="./showclient2.php">klanten laten zien (Tijdelijk)</a>
-                <a href="./showorder2.php">alle bestellingen laten zien (Tijdelijk)</a>
+                <a href="./country.php">Landen laten zien</a>
+                <a href="./showorder3.php">alle bestellingen laten zien (Tijdelijk)</a>
             </div>
         </li>
         <li class="dropdown">
@@ -18,9 +19,15 @@
             <div class="dropdown-content">
                 <a href="./sortcat.php">sortcat()tijdelijk</a>
                 <a href="./productcounter.php">Producten Per Catagorie</a>
+                <a href="./producten-overzicht.php">Producten Overzicht</a>
             </div>
         </li>
-        <li><a href="./leveranciers.php">Leveranciers</a></li>
+        <li class="dropdown">
+            <a href="leveranciers.php" class="dropbtn">Leveranciers</a>
+            <div class="dropdown-content">
+                <a href="./levperland.php">Leveranciers per land</a>
+            </div>
+        </li>
         <li class="dropdown">
             <a href="#" class="dropbtn">Formulieren</a>
             <div class="dropdown-content">

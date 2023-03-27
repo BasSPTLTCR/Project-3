@@ -49,6 +49,7 @@
                     }
                 ?>
             </select>
+            <input type="text" name="sup" id="sup">
             <input type="submit" name="confirm" value="confirm">
         </form>
         <?php
@@ -56,14 +57,15 @@
             $country= "";
             if (isset($_POST["country"])) {
                 $country=  $_POST["country"];
+                $sup=  $_POST["sup"];
             }
             if ($country== "") {
                 $country= "%";
             }
         try
         {
-            $fullQuery = $db->prepare("SELECT supplier.name, supplier.address, country.name AS country, supplier.phonenumber, supplier.email FROM `supplier` INNER JOIN country on supplier.country_id = country.idcountry WHERE country.name LIKE '$country%'");
-
+            $fullQuery = $db->prepare("SELECT supplier.name, supplier.address, country.name AS country, supplier.phonenumber, supplier.email FROM `supplier` INNER JOIN country on supplier.country_id = country.idcountry WHERE country.name LIKE '$country%' AND supplier.name LIKE :sup");
+            $fullQuery->bindValue(':sup', $sup . "%");
         }
         catch(PDOExeption $e) 
         {
@@ -114,5 +116,5 @@
     include "./footer.php";
     ?>
 </body>
-
+<!-- test -->
 </html>
