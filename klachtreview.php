@@ -15,21 +15,21 @@
     <section class="reviewtxtback">
     <h1 class= "klachth1">Klacht</h1>
     
-    <!-- <?php 
+     <?php 
 session_start();
 
-    // echo  '<p class="reviewnaam">naam: </p>'; 
-    // echo  '<p class="textreview">'. $_POST["naam"] . '</p>';
-    // echo "<br>";
-    // echo "<br>";
-    // echo '<p class="reviewemail">email: </p>';
-    // echo  '<p class="textreview">'. $_POST["email"] . '</p>';
-    // echo "<br>";
-    // echo "<br>";
-    // echo '<p class="reviewklacht">klacht: </p>';
-    // echo  '<p class="textreview">'. $_POST["klacht"] . '</p>';
-?> -->
-<form action="" method="post">
+    echo  '<p class="reviewnaam">naam: </p>'; 
+    echo  '<p class="textreview">'. $_POST["naam"] . '</p>';
+    echo "<br>";
+    echo "<br>";
+    echo '<p class="reviewemail">email: </p>';
+    echo  '<p class="textreview">'. $_POST["email"] . '</p>';
+    echo "<br>";
+    echo "<br>";
+    echo '<p class="reviewklacht">klacht: </p>';
+    echo  '<p class="textreview">'. $_POST["klacht"] . '</p>';
+?>
+<!-- <form action="" method="post">
                 <label for="naam" >Naam:</label>
                 <input type="text" name="naam">
                 <br>
@@ -40,7 +40,7 @@ session_start();
                 <textarea name="klacht" cols="50" rows="15"></textarea>
                 <br>
                 <input type="submit" value="Verstuur" class="klachtbtn">
-        </form>
+        </form> -->
    </section>
   </section>
 <?php
