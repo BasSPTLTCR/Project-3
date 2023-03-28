@@ -40,7 +40,7 @@
         ?>
         <form action="" method="post">
         <select name="country" id="country">
-            <option value="">--- Kies een land ---</option>
+            <option value="no">--- Kies een land ---</option>
 
                 <?php
                     foreach($result as $rij) 
@@ -49,7 +49,7 @@
                     }
                 ?>
             </select>
-            <input type="text" name="sup" id="sup">
+            <!-- <input type="text" name="sup" id="sup"> -->
             <input type="submit" name="confirm" value="confirm">
         </form>
         <?php
@@ -57,16 +57,19 @@
             $country= "";
             if (isset($_POST["country"])) {
                 $country=  $_POST["country"];
-                $sup = $_POST["sup"] . "%";
+                // $sup = $_POST["sup"] . "%";
+                if ($country == "no") {
+                    $country = "%";
+                }
             }
             if (! isset($_POST["country"])) {
                 $country = "%";
-                $sup = "%";
+                // $sup = "%";
             }
         try 
         {
-            $fullQuery = $db->prepare("SELECT supplier.name, supplier.address, country.name AS countryname, supplier.phonenumber, supplier.email, sum(product.price)/ COUNT(product.id) AS avg FROM `supplier` INNER JOIN country on supplier.country_id = country.idcountry LEFT JOIN product on supplier.id = product.supplier_id WHERE country.name LIKE :country AND supplier.name LIKE :sup GROUP BY supplier.name;");
-            $fullQuery->bindValue(':sup', $sup);
+            $fullQuery = $db->prepare("SELECT supplier.name, supplier.address, country.name AS countryname, supplier.phonenumber, supplier.email, sum(product.price)/ COUNT(product.id) AS avg FROM `supplier` INNER JOIN country on supplier.country_id = country.idcountry LEFT JOIN product on supplier.id = product.supplier_id WHERE country.name LIKE :country GROUP BY supplier.name;");
+            // $fullQuery->bindValue(':sup', $sup);
             $fullQuery->bindValue(':country', $country);
         }
         catch(PDOExeption $e) 
