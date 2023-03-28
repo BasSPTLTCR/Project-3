@@ -19,6 +19,7 @@
             <a href="producten.php" class="dropbtn">Producten</a>
             <div class="dropdown-content">
                 <a href="./sortcat.php">sortcat()tijdelijk</a>
+                <a href="./average-price-cat.php">gemiddelde prijs cat</a>
                 <a href="./productcounter.php">Producten Per Catagorie</a>
                 <a href="./producten-overzicht.php">Producten Overzicht</a>
             </div>
