@@ -18,16 +18,17 @@
         <li class="dropdown">
             <a href="producten.php" class="dropbtn">Producten</a>
             <div class="dropdown-content">
-                <a href="./sortcat.php">sortcat()tijdelijk</a>
-                <a href="./average-price-cat.php">gemiddelde prijs cat</a>
+                <a href="./sortcat.php">Producten Overzicht</a>
+                <a href="./average-price-cat.php">Gemiddelde Prijs Per Catagorie</a>
                 <a href="./productcounter.php">Producten Per Catagorie</a>
-                <a href="./producten-overzicht.php">Producten Overzicht</a>
             </div>
         </li>
         <li class="dropdown">
             <a href="leveranciers.php" class="dropbtn">Leveranciers</a>
             <div class="dropdown-content">
                 <a href="./levperland.php">Leveranciers per land</a>
+                <a href="./avarage-price-suplier.php">Gemiddelde Prijs Per Leverancier</a>
+                <a href="./frm-suplieradding.php">Toevoegen Leverancier</a>
             </div>
         </li>
         <li class="dropdown">
