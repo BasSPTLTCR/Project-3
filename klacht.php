@@ -16,7 +16,7 @@
         <section class="klachttxtback">
         <form action="klachtreview.php" method="post">
         <h1 class= "klachth1">Klacht</h1>
-            <form action="" method="post">
+            <form action="./klachtreview.php" method="post">
                 <label for="naam" >Naam:</label>
                 <input type="text" name="naam">
                 <br>
