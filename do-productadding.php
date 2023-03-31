@@ -22,49 +22,46 @@
         header("Refresh:3; url=frm-productadding.php");
         die;
     }
-    if (! isset($_POST["productname"]) || ! isset($_POST["productaddress"]) || ! isset($_POST["productcountry"]) || ! isset($_POST["productPhonenr"]) || ! isset($_POST["productEmail"]) ) {
-        echo "<h2>gegevens verloren, contat beheer</h2>";
+    if (! isset($_POST["prodname"]) || ! isset($_POST["prodprice"]) || ! isset($_POST["prodcategorie"]) || ! isset($_POST["prodleverancier"])) {
+        echo "<h2>gegevens verloren, contact beheer</h2>";
         header("Refresh:3; url=frm-productadding.php");
         die;
     }
     require './dbconnenct.php';
-    $productcountryname = $_POST["productcountry"];
+    $productcategoriename = $_POST["prodcategorie"];
     try
         {
-            $productpcountry = $db->prepare("SELECT `idcountry` FROM `country` WHERE `name` = :productcountryname");
-            $productpcountry->bindValue(':productcountryname', $productcountryname);
+            $productpcategoryid = $db->prepare("SELECT `category_id` FROM `category` WHERE `name` = :prodcategoriename");
+            $productpcategoryid->bindValue(':productcategoriename', $productcategoriename);
         }
         catch(PDOExeption $e) 
         {
             die("Fout bij verbinden met database: " . $e->getMessage());
         }
                 #3 querydoen
-        $productpcountry->execute();
+        $productpcategoryid->execute();
 
         #4 checkresult
-        if ($productpcountry->RowCount() > 0)
+        if ($productpcategoryid->RowCount() > 0)
         {
-        $result=$productpcountry->FetchAll(PDO::FETCH_ASSOC);
+        $result=$productpcategoryid->FetchAll(PDO::FETCH_ASSOC);
         foreach($result as $rij) 
                     {
-                        $productcountryid = $rij["idcountry"];
+                        $productcategoryid = $rij["category_id"];
                     }
         }
     #maak hieronder de insert qry
     $productname = $_POST["productname"];
-    $productaddress = $_POST["productaddress"];
-    $productPhonenr = $_POST["productPhonenr"];
-    $productEmail = $_POST["productEmail"];
+    $productprice = $_POST["productprice"];
+    $productsupplierid = $_POST["productsupplierid"];
     echo $productname;
-    echo $productaddress;
-    echo $productPhonenr;
-    echo $productEmail;
-    $insquery = $db->prepare("INSERT INTO product (id, name, address, country_id, phonenumber, email) VALUES (NULL, :productname, :productaddress, :productcountryid, :productPhonenr, :productEmail)"); 
+    echo $productprice;
+    echo $productsupplierid;
+    $insquery = $db->prepare("INSERT INTO product (id, name, price, supplier_id, category_id) VALUES (NULL, :productname, :productprice, :productsupplierid, :productcategorieid)"); 
     $insquery->bindValue("productname", $productname);
-    $insquery->bindValue("productaddress", $productaddress);
-    $insquery->bindValue("productPhonenr", $productPhonenr);
-    $insquery->bindValue("productcountryid", $productcountryid);
-    $insquery->bindValue("productEmail", $productEmail);
+    $insquery->bindValue("productaddress", $productprice);
+    $insquery->bindValue("productsupplierid", $productsupplierid);
+    $insquery->bindValue("productcategorieid", $productcategorieid);
             $insquery   ->execute();
     ?>
     <?php

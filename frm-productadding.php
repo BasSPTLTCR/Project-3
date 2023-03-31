@@ -40,9 +40,9 @@
     <form action="./chk-productadding.php" method="post">
         <label for="prodname">Product naam</label>
         <input type="text" name="prodname" required>
-        <label for="prodname">Product prijs</label>
-        <input type="text" name="prodaddress" required>
-        <label for="prodname">Product category</label>
+        <label for="prodprice">Product prijs</label>
+        <input type="text" name="prodprice" required>
+        <label for="prodcategorie">Product category</label>
         <select name="prodcategorie">
         <?php
             foreach($result as $rij) 

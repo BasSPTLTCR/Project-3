@@ -24,15 +24,14 @@
     #0a komt via frm?
     if (! isset($_POST["voegtoe"])) {
         echo "<h2>niet juiste mannier</h2>";
-        header("Refresh:3; url=frm-suplieradding.php");
+        header("Refresh:3; url=frm-productadding.php");
     }
     else {
         require './dbconnenct.php';
-        $supname = test_input($_POST["supname"]);
-        $supaddress = test_input($_POST["supaddress"]);
-        $supcountry = test_input($_POST["supcountry"]);
-        $supPhonenr = test_input($_POST["supPhonenr"]);
-        $supEmail = test_input($_POST["supEmail"]);
+        $prodname = test_input($_POST["prodname"]);
+        $prodprice = test_input($_POST["prodprice"]);
+        $prodcategorie = test_input($_POST["prodcategorie"]);
+        $prodleverancier = test_input($_POST["prodleverancier"]);
 
         #0b vraag gegeven voor voegtoe
 
@@ -52,36 +51,23 @@
         }
         try
         {
-            $chkprodName = $db->prepare("SELECT `name` FROM `product` WHERE `name` = :prodname");
-            $chkprodName->bindValue(':prodName', $prodName);
+            $chkprice = $db->prepare("SELECT `price` FROM `product` WHERE `price` = :supprice");
+            $chkprice->bindValue(':prodprice', $prodprice);
         }
         catch(PDOExeption $e) 
         {
             die("Fout bij verbinden met database: " . $e->getMessage());
         }
-        if ($chkprodName->RowCount() < 0) {
-            echo "Product naam bestaal al";
-        }
-        try
-        {
-            $chkPhonenr = $db->prepare("SELECT `phonenumber` FROM `product` WHERE `phonenumber` = :supPhonenr");
-            $chkPhonenr->bindValue(':supPhonenr', $supPhonenr);
-        }
-        catch(PDOExeption $e) 
-        {
-            die("Fout bij verbinden met database: " . $e->getMessage());
-        }
-        if ($chkPhonenr->RowCount() < 0) {
+        if ($chkprice->RowCount() < 0) {
             echo "LeveranciereTelefoon Nummer al ingebruik";
         }
         #2 querydef
         ?>
         <form action="./do-productadding.php" method="post">
         <input type="text" name="prodname" value="<?php echo $prodname ?>" readonly>
-        <input type="text" name="prodaddress" value="<?php echo $prodaddress ?>" >
-        <input type="text" name="prodcountry" value="<?php echo $prodcountry ?>" >
-        <input type="text" name="prodPhonenr" value="<?php echo $prodPhonenr ?>" >
-        <input type="email" name="prodEmail" value="<?php echo $prodEmail ?>" >
+        <input type="text" name="prodprice" value="<?php echo $prodprice ?>" >
+        <input type="text" name="prodcategorie" value="<?php echo $prodcategorie ?>" >
+        <input type="text" name="prodleverancier" value="<?php echo $prodleverancier ?>" >
         <input type="submit" value="annul" name="annul">
         <input type="submit" value="confirm" name="confirm">
     </form>
