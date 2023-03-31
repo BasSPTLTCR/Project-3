@@ -31,8 +31,7 @@
     $productcategoriename = $_POST["prodcategorie"];
     try
         {
-            $productpcategory = $db->prepare("SELECT id AS category_id FROM category WHERE name = :prodcategoriename");
-            //  
+            $productpcategory = $db->prepare("SELECT id AS category_id FROM category WHERE name = :productcategoriename");
             $productpcategory->bindValue(':productcategoriename', $productcategoriename);
         }
         catch(PDOExeption $e) 
@@ -45,24 +44,44 @@
         #4 checkresult
         if ($productpcategory->RowCount() > 0)
         {
-        $result=$productpcategoryid->FetchAll(PDO::FETCH_ASSOC);
+        $result=$productpcategory->FetchAll(PDO::FETCH_ASSOC);
         foreach($result as $rij) 
                     {
-                        $productcategoryid = $rij["category_id"];
+                        $prodcategoryid = $rij["category_id"];
+                    }
+        }
+        $productsuppliername = $_POST["prodleverancier"];
+    try
+        {
+            $productsupplier = $db->prepare("SELECT id AS supplier_id FROM supplier WHERE name = :productleveranciername");
+            $productsupplier->bindValue(':productleveranciername', $productsuppliername);
+        }
+        catch(PDOExeption $e) 
+        {
+            die("Fout bij verbinden met database: " . $e->getMessage());
+        }
+                #3 querydoen
+        $productsupplier->execute();
+
+        #4 checkresult
+        if ($productsupplier->RowCount() > 0)
+        {
+        $result=$productsupplier->FetchAll(PDO::FETCH_ASSOC);
+        foreach($result as $rij) 
+                    {
+                        $prodsupplierid = $rij["supplier_id"];
                     }
         }
     #maak hieronder de insert qry
-    $productname = $_POST["productname"];
-    $productprice = $_POST["productprice"];
-    $productsupplierid = $_POST["productsupplierid"];
+    $productname = $_POST["prodname"];
+    $productprice = $_POST["prodprice"];
     echo $productname;
     echo $productprice;
-    echo $productsupplierid;
-    $insquery = $db->prepare("INSERT INTO product (id, name, price, supplier_id, category_id) VALUES (NULL, :productname, :productprice, :productsupplierid, :productcategorieid)"); 
-    $insquery->bindValue("productname", $productname);
-    $insquery->bindValue("productaddress", $productprice);
-    $insquery->bindValue("productsupplierid", $productsupplierid);
-    $insquery->bindValue("productcategorieid", $productcategorieid);
+    $insquery = $db->prepare("INSERT INTO product (id, name, price, supplier_id, category_id) VALUES (NULL, :prodname, :prodprice, :prodsupplierid, :prodcategorieid)"); 
+    $insquery->bindValue("prodname", $productname);
+    $insquery->bindValue("prodprice", $productprice);
+    $insquery->bindValue("prodsupplierid", $prodsupplierid);
+    $insquery->bindValue("prodcategorieid", $prodcategoryid);
             $insquery   ->execute();
     ?>
     <?php
