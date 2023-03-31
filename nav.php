@@ -21,6 +21,8 @@
                 <a href="./sortcat.php">Producten Overzicht</a>
                 <a href="./average-price-cat.php">Gemiddelde Prijs Per Catagorie</a>
                 <a href="./productcounter.php">Producten Per Catagorie</a>
+                <a href="./producten-overzicht.php">Producten Overzicht</a>
+                <a href="./frm-productadding.php">Product toevoegen</a>
             </div>
         </li>
         <li class="dropdown">
