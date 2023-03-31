@@ -18,8 +18,8 @@
         #2 querydef
         try
         {
-            $fullQuery = $db->prepare("SELECT `name` AS catname FROM `category` ORDER BY `name` ASC;");
-            $oneQuery = $db->prepare("SELECT `name` AS supname FROM `supplier` ORDER BY `name` ASC");
+            $fullQuery = $db->prepare("SELECT category.`name` AS catname FROM `category` ORDER BY `name` ASC;");
+            $oneQuery = $db->prepare("SELECT supplier.`name` AS supname FROM `supplier` ORDER BY `name` ASC");
 
         }
         catch(PDOExeption $e) 
@@ -34,6 +34,7 @@
         if ($fullQuery->RowCount() > 0 && $oneQuery->RowCount() > 0 )
         {
         $result=$fullQuery->FetchAll(PDO::FETCH_ASSOC);
+        $result2=$oneQuery->FetchAll(PDO::FETCH_ASSOC);
 ?>
     <h2>Geef de gegevens van het product op</h2>
     <form action="./chk-productadding.php" method="post">
@@ -53,9 +54,9 @@
         <label for="prodleverancier">Leverancier</label>
         <select name="prodleverancier">
         <?php
-            foreach($result as $rij) 
+            foreach($result2 as $rij2) 
             {
-                echo "<option>".$rij["supname"]."</option>";
+                echo "<option>".$rij2["supname"]."</option>";
             }
         ?>
         </select>
