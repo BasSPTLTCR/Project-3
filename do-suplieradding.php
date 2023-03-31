@@ -23,7 +23,7 @@
         die;
     }
     if (! isset($_POST["supname"]) || ! isset($_POST["supaddress"]) || ! isset($_POST["supcountry"]) || ! isset($_POST["supPhonenr"]) || ! isset($_POST["supEmail"]) ) {
-        echo "<h2>gegevens verloren, contat beheer</h2>";
+        echo "<h2>gegevens verloren, contact beheer</h2>";
         header("Refresh:3; url=frm-suplieradding.php");
         die;
     }
