@@ -33,7 +33,7 @@
         {
         $result=$fullQuery->FetchAll(PDO::FETCH_ASSOC);
 ?>
-    <h2>Geef de gegevens van de brouwer op</h2>
+    <h2>Geef de gegevens van de Leverancier op</h2>
     <form action="./chk-suplieradding.php" method="post">
         <label for="supname">Leverancier Naam</label>
         <input type="text" name="supname" required>

@@ -1,1 +1,0 @@
-SELECT client.firstname AS ClientFirstName, client.surname AS ClientSurName, product.name AS ProductName, orders.purchasedate, product.price AS ProductPrice FROM `orders` INNER JOIN client on orders.client_id = client.id INNER JOIN orderlisting on orders.id = orderlisting.order_id INNER JOIN product on orderlisting.product_id = product.id

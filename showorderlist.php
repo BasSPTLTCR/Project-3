@@ -52,7 +52,7 @@
             if (isset($_POST["confirm"])) {
                 $prod = $_POST["prod"];
             }
-            if ($prod == "") {
+            if (! isset($_POST["confirm"])) {
                 $prod = "%";
             }
         #2 querydef
