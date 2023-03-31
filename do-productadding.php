@@ -31,18 +31,19 @@
     $productcategoriename = $_POST["prodcategorie"];
     try
         {
-            $productpcategoryid = $db->prepare("SELECT `category_id` FROM `category` WHERE `name` = :prodcategoriename");
-            $productpcategoryid->bindValue(':productcategoriename', $productcategoriename);
+            $productpcategory = $db->prepare("SELECT id AS category_id FROM category WHERE name = :prodcategoriename");
+            //  
+            $productpcategory->bindValue(':productcategoriename', $productcategoriename);
         }
         catch(PDOExeption $e) 
         {
             die("Fout bij verbinden met database: " . $e->getMessage());
         }
                 #3 querydoen
-        $productpcategoryid->execute();
+        $productpcategory->execute();
 
         #4 checkresult
-        if ($productpcategoryid->RowCount() > 0)
+        if ($productpcategory->RowCount() > 0)
         {
         $result=$productpcategoryid->FetchAll(PDO::FETCH_ASSOC);
         foreach($result as $rij) 
