@@ -19,7 +19,7 @@
         #2 querydef
         try
         {
-            $fullQuery = $db->prepare("SELECT COUNT(orders.id) AS NumberOfProducts, client_id AS ClientId FROM orders INNER JOIN client on orders.client_id = client_id WHERE orders.client_id GROUP BY orders.client_id");
+            $fullQuery = $db->prepare("SELECT client_id AS ClientId, COUNT(product_id) AS NumberOfProducts FROM `orderlisting` INNER JOIN orders ON orderlisting.order_id = orders.id GROUP BY client_id ORDER BY client_id;");
 
         }
         catch(PDOExeption $e) 
@@ -40,15 +40,16 @@
             <div class="tafeldiv">
                 <table class="tafel">
                     <thead>
-                        <th>NumberOfProducts</th>
                         <th>ClientId</th>
+                        <th>NumberOfProducts</th>
                     </thead>
                     <tbody>
                         <?php
                             foreach($result as $rij) 
                             {
-                                echo "<tr><td>" . $rij["NumberOfProducts"] . "</td>";
-                                echo "<td>" . $rij["ClientId"] . "</td></tr>";
+                                echo "<tr><td>" . $rij["ClientId"] . "</td>";
+                                echo "<td>" . $rij["NumberOfProducts"] . "</td></tr>";
+                                
                             }
                         ?>
                     </tbody>
