@@ -42,6 +42,7 @@
         {
             $chksupname = $db->prepare("SELECT `name` FROM `supplier` WHERE `name` = :supname");
             $chksupname->bindValue(':supname', $supname);
+            $chksupname->execute();
         }
         catch(PDOExeption $e) 
         {
@@ -49,11 +50,14 @@
         }
         if ($chksupname->RowCount() < 0) {
             echo "Leveranciernaam bestaal al";
+            header("Refresh:3; url=frm-suplieradding.php");
+            extit();
         }
         try
         {
             $chksupEmail = $db->prepare("SELECT `email` FROM `supplier` WHERE `email` = :supEmail");
             $chksupEmail->bindValue(':supEmail', $supEmail);
+            $chksupEmail->execute();
         }
         catch(PDOExeption $e) 
         {
@@ -66,6 +70,7 @@
         {
             $chkPhonenr = $db->prepare("SELECT `phonenumber` FROM `supplier` WHERE `phonenumber` = :supPhonenr");
             $chkPhonenr->bindValue(':supPhonenr', $supPhonenr);
+            $chkPhonenr->execute();
         }
         catch(PDOExeption $e) 
         {
@@ -73,6 +78,8 @@
         }
         if ($chkPhonenr->RowCount() < 0) {
             echo "LeveranciereTelefoon Nummer al ingebruik";
+            header("Refresh:3; url=frm-suplieradding.php");
+            extit();
         }
         #2 querydef
         ?>
