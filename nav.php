@@ -23,6 +23,7 @@
                 <a href="./productcounter.php">Producten Per Catagorie</a>
                 <a href="./producten-overzicht.php">Producten Overzicht</a>
                 <a href="./frm-productadding.php">Product toevoegen</a>
+                <a href="./frm-categoryadding.php">Categorie toevoegen</a>
             </div>
         </li>
         <li class="dropdown">
