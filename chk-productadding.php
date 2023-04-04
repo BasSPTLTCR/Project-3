@@ -42,7 +42,7 @@
             $chkprodname = $db->prepare("SELECT `name` FROM `product` WHERE `name` = :prodname");
             $chkprodname->bindValue(':prodname', $prodname);
         }
-        catch(PDOExeption $e) 
+        catch(PDOException $e) 
         {
             die("Fout bij verbinden met database: " . $e->getMessage());
         }
@@ -54,7 +54,7 @@
             $chkprice = $db->prepare("SELECT `price` FROM `product` WHERE `price` = :supprice");
             $chkprice->bindValue(':prodprice', $prodprice);
         }
-        catch(PDOExeption $e) 
+        catch(PDOException $e) 
         {
             die("Fout bij verbinden met database: " . $e->getMessage());
         }
