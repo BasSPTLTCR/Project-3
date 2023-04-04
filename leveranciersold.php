@@ -107,7 +107,7 @@
         }
         else
         {
-            echo "<h2>Sorry,Geen resultaat gevonden</h2>";
+            echo "<h2>Sorry, geen resultaat gevonden</h2>";
         }
         #6 geen result melding
         ?>

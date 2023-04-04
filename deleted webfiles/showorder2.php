@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>alle wilms met startletter B</title>
+    <title>Klanten</title>
 </head>
 <body>
     <?php
@@ -97,7 +97,7 @@
         }
         else
         {
-            echo "<h2>Sorry,Geen resultaat gevonden</h2>";
+            echo "<h2>Sorry, geen resultaat gevonden</h2>";
         }}
         #6 geen result melding
         ?>

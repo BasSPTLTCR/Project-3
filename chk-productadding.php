@@ -41,6 +41,7 @@
         {
             $chkprodname = $db->prepare("SELECT `name` FROM `product` WHERE `name` = :prodname");
             $chkprodname->bindValue(':prodname', $prodname);
+            $chkprodname->execute();
         }
         catch(PDOException $e) 
         {
