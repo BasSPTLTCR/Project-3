@@ -13,6 +13,7 @@
                 <a href="./country.php">Landen laten zien</a>
                 <a href="./showorder3.php">alle bestellingen laten zien (Tijdelijk)</a>
                 <a href="./showorderlist.php">alle bestelregels laten zien (Tijdelijk)</a>
+                <a href="./frm-countryadding.php">Landen toevoegen</a>
                 <a href="./productperklant.php">aantal bestelde producten laten zien (Tijdelijk)</a>
             </div>
         </li>
