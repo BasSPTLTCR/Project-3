@@ -19,48 +19,7 @@
         #2 querydef
         try
         {
-            $oneQuery = $db->prepare("SELECT DISTINCT city FROM `client` ORDER BY `client`.`city` ASC;");
-        }
-        catch(PDOExeption $e) 
-        {
-            die("Fout bij verbinden met database: " . $e->getMessage());
-        }
-        #3 querydoen
-        $oneQuery->execute();
-
-        #4 checkresult
-        if ($oneQuery->RowCount() > 0)
-        {
-        $result=$oneQuery->FetchAll(PDO::FETCH_ASSOC);
-
-        #5 show result
-        ?>
-        <form action="" method="post">
-        <select name="city" id="city">
-            <option value="">--- Kies een stad ---</option>
-
-                <?php
-                    foreach($result as $rij) 
-                    {
-                        echo "<option>".$rij["city"]."</option>";
-                    }
-                ?>
-            </select>
-            <input type="submit" name="confirm" value="confirm">
-        </form>
-        <?php
-        }
-        $city = "";
-        if (isset($_POST["confirm"])) {
-            $city = $_POST["city"];
-        }
-        if ($city == "") {
-            $city = "%";
-        }
-        try
-        {
-            $fullQuery = $db->prepare("SELECT firstname, surname, gender, `address`, city, zipcode, email , COUNT(orders.id) AS NumberOfOrders FROM `client` LEFT JOIN orders ON client.id = orders.client_id WHERE city LIKE :city GROUP BY client.id;");
-            $fullQuery->bindValue(':city', $city);
+            $fullQuery = $db->prepare("SELECT firstname, surname, gender, `address`, city, zipcode, email, COUNT(orders.id) AS NumberOfOrders FROM `client` LEFT JOIN orders ON client.id = orders.clientid GROUP BY client.id;");
 
         }
         catch(PDOExeption $e) 

@@ -28,6 +28,9 @@
         if (isset($_POST["confirm"])) {
             $countname = $_POST["countname"];
         }
+        if (! isset($_POST["confirm"])) {
+            $countname = "%";
+        }
         try {
             $fullQuery = $db->prepare("SELECT country.name, country.code FROM `country` WHERE country.name LIKE :countname");
             $fullQuery->bindValue(':countname', $countname . "%");
@@ -60,7 +63,7 @@
             </table>
             <?php
         } else {
-            echo "<h2>Sorry,Geen resultaat gevonden</h2>";
+            echo "<h2>Sorry, geen resultaat gevonden</h2>";
         }
         #6 geen result melding
         ?>

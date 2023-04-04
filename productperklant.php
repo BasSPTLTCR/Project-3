@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Leveranciers per land</title>
+    <title>Producten per klant</title>
 </head>
 <body>
     <?php
@@ -19,7 +19,10 @@
         #2 querydef
         try
         {
-            $fullQuery = $db->prepare("SELECT COUNT(supplier.id) AS NumberOfSuppliers, country.name AS Country FROM supplier INNER JOIN country on supplier.country_id = country.idcountry WHERE supplier.country_id GROUP BY supplier.country_id;");
+            $fullQuery = $db->prepare("SELECT client_id AS ClientId, client.firstname AS firstname, client.surname AS lastname ,COUNT(product_id) AS NumberOfProducts FROM `orderlisting` 
+            INNER JOIN orders ON orderlisting.order_id = orders.id 
+            INNER JOIN client ON orders.client_id = client.id
+            GROUP BY client_id ORDER BY client_id;");
 
         }
         catch(PDOExeption $e) 
@@ -40,15 +43,20 @@
             <div class="tafeldiv">
                 <table class="tafel">
                     <thead>
-                        <th>NumberOfSuppliers</th>
-                        <th>Country</th>
+                        <th>ClientId</th>
+                        <th>firstname</th>
+                        <th>lastname</th>
+                        <th>NumberOfProducts</th>
                     </thead>
                     <tbody>
                         <?php
                             foreach($result as $rij) 
                             {
-                                echo "<tr><td>" . $rij["NumberOfSuppliers"] . "</td>";
-                                echo "<td>" . $rij["Country"] . "</td></tr>";
+                                echo "<tr><td>" . $rij["ClientId"] . "</td>";
+                                echo "<td>" . $rij["firstname"] ."</td>";
+                                echo "<td>" . $rij["lastname"] ."</td>";
+                                echo "<td>" . $rij["NumberOfProducts"] . "</td></tr>";
+                                
                             }
                         ?>
                     </tbody>
@@ -59,7 +67,7 @@
         }
         else
         {
-            echo "<h2>Sorry, geen resultaat gevonden</h2>";
+            echo "<h2>Sorry,Geen resultaat gevonden</h2>";
         }
         #6 geen result melding
         ?>

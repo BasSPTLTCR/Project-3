@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>alle wilms met startletter B</title>
+    <title>Gemiddeldeprijs Per Category</title>
 </head>
+
 <body>
     <?php
     include "./nav.php";
     ?>
     <main>
-    <?php
+        <?php
         #1 verbinding database
         require './dbconnenct.php';
-
-        #2 querydef
+        
         try
         {
-            $fullQuery = $db->prepare("SELECT client.firstname AS ClientFirstName, client.surname AS ClientSurName, product.name AS ProductName, purchasedate, product.price AS ProductPrice  FROM `orders` INNER JOIN client on orders.clientid = client.id INNER JOIN product on orders.productid = product.id;");
-
+            $fullQuery = $db->prepare("SELECT category.name, sum(product.price)/ COUNT(product.id) AS avg FROM `category` LEFT JOIN product on category.id = product.category_id GROUP BY category.name;");
         }
         catch(PDOExeption $e) 
         {
@@ -38,30 +38,28 @@
         ?>
         <table class="tafel">
             <thead>
-                <th>firstname</th>
-                <th>surname</th>
-                <th>ProductName</th>
-                <th>purchasedate</th>
-                <th>ProductPrice</th>
+                <th>name</th>
+                <th>avarage</th>
             </thead>
             <tbody>
                 <?php
                     foreach($result as $rij) 
                     {
-                        echo "<tr><td>" . $rij["ClientFirstName"] . "</td>";
-                        echo "<td>" . $rij["ClientSurName"] . "</td>";
-                        echo "<td>" . $rij["ProductName"] . "</td>";
-                        echo "<td>" . $rij["purchasedate"] . "</td>";
-                        echo "<td>" . "€" . $rij["ProductPrice"] . "</td></tr>";
+                        if ($rij["avg"] != "") {
+                            $rij["avg"] = "€" . $rij["avg"];
+                        }
+                        echo "<tr><td>" . $rij["name"] . "</td>";
+                        echo "<td>" . $rij["avg"] . "</td></tr>";
                     }
                 ?>
+
             </tbody>
         </table>
         <?php
         }
         else
         {
-            echo "<h2>Sorry,Geen resultaat gevonden</h2>";
+            echo "<h2>Sorry, geen resultaat gevonden</h2>";
         }
         #6 geen result melding
         ?>
@@ -70,4 +68,5 @@
     include "./footer.php";
     ?>
 </body>
+
 </html>

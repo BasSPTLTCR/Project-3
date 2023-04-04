@@ -12,19 +12,28 @@
                 <a href="./showclient2.php">klanten laten zien (Tijdelijk)</a>
                 <a href="./country.php">Landen laten zien</a>
                 <a href="./showorder3.php">alle bestellingen laten zien (Tijdelijk)</a>
+                <a href="./showorderlist.php">alle bestelregels laten zien (Tijdelijk)</a>
+                <a href="./frm-countryadding.php">Landen toevoegen</a>
+                <a href="./productperklant.php">aantal bestelde producten laten zien (Tijdelijk)</a>
             </div>
         </li>
         <li class="dropdown">
             <a href="producten.php" class="dropbtn">Producten</a>
             <div class="dropdown-content">
-                <a href="./sortcat.php">sortcat()tijdelijk</a>
+                <a href="./sortcat.php">Producten Overzicht</a>
+                <a href="./average-price-cat.php">Gemiddelde Prijs Per Catagorie</a>
                 <a href="./productcounter.php">Producten Per Catagorie</a>
+                <a href="./producten-overzicht.php">Producten Overzicht</a>
+                <a href="./frm-productadding.php">Product toevoegen</a>
+                <a href="./frm-categoryadding.php">Categorie toevoegen</a>
             </div>
         </li>
         <li class="dropdown">
             <a href="leveranciers.php" class="dropbtn">Leveranciers</a>
             <div class="dropdown-content">
                 <a href="./levperland.php">Leveranciers per land</a>
+                <a href="./avarage-price-suplier.php">Gemiddelde Prijs Per Leverancier</a>
+                <a href="./frm-suplieradding.php">Toevoegen Leverancier</a>
             </div>
         </li>
         <li class="dropdown">
