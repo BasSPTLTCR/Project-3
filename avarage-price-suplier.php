@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Leveranciers</title>
+    <title>Gemiddeldeprijs Per Leverancier</title>
 </head>
 
 <body>
@@ -21,7 +21,7 @@
         #2 querydef
         try
         {
-            $fullQuery = $db->prepare("SELECT 'name' FROM country ORDER BY `country`.`name` ASC");
+            $fullQuery = $db->prepare("SELECT DISTINCT country.name AS country FROM `supplier` INNER JOIN country on supplier.country_id = country.idcountry ORDER BY `country`.`name` ASC");
 
         }
         catch(PDOExeption $e) 
@@ -57,15 +57,13 @@
             if (isset($_POST["country"])) {
                 $country=  $_POST["country"];
             }
-            if ($country== "") {
+            if (! isset($_POST["country"])) {
                 $country = "%";
             }
-            else {
-                $country = $country . "%";
-            }
-        try
+        try 
         {
-            $fullQuery = $db->prepare("SELECT supplier.name, supplier.address, country.name AS countryname, supplier.phonenumber, supplier.email, sum(product.price)/ COUNT(product.id) AS avg FROM `supplier` INNER JOIN country on supplier.country_id = country.idcountry LEFT JOIN product on supplier.id = product.supplier_id GROUP BY supplier.name;");
+            $fullQuery = $db->prepare("SELECT supplier.name, supplier.address, country.name AS countryname, supplier.phonenumber, supplier.email, sum(product.price)/ COUNT(product.id) AS avg FROM `supplier` INNER JOIN country on supplier.country_id = country.idcountry LEFT JOIN product on supplier.id = product.supplier_id WHERE country.name LIKE :country GROUP BY supplier.name;");
+            $fullQuery->bindValue(':country', $country);
         }
         catch(PDOExeption $e) 
         {
@@ -112,13 +110,14 @@
         }
         else
         {
-            echo "<h2>Sorry,Geen resultaat gevonden</h2>";
+            echo "<h2>Sorry, geen resultaat gevonden</h2>";
         }
         #6 geen result melding
         ?>
     </main>
     <?php
     include "./footer.php";
+    #test
     ?>
 </body>
 

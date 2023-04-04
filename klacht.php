@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Klachten Formulier</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,8 +15,8 @@
       <section class="klachtpage">
         <section class="klachttxtback">
         <form action="klachtreview.php" method="post">
-        <h1 class= "klachth1">Klacht</h1>
-            <form action="" method="post">
+        <h1 class= "klachth1">Klachten Formulier</h1>
+            <form action="./klachtreview.php" method="post">
                 <label for="naam" >Naam:</label>
                 <input type="text" name="naam">
                 <br>
