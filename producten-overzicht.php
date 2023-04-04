@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,18 +8,18 @@
     <link rel="stylesheet" href="style.css">
     <title>Producten Overzicht</title>
 </head>
+
 <body>
     <?php
     include "./nav.php";
-    ?>
-    <?php
-            #1 verbinding database
-            require './dbconnenct.php';
 
-            #2 querydef
-            try
-            {
-                $fullQuery = $db->prepare("SELECT `name`, price FROM `product`");
+        #1 verbinding database
+        require './dbconnenct.php';
+
+        #2 querydef
+        try
+        {
+            $fullQuery = $db->prepare("SELECT `name`, price FROM `product`");
     
             }
             catch(PDOExeption $e) 
@@ -64,4 +65,5 @@
     ?>
 
 </body>
+
 </html>
