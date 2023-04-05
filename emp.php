@@ -32,13 +32,15 @@
             <img src="./img/pass/eby.jpg" alt="" class="pass">
             <h2>Eby van Bokkem</h2>
             <h3>Head Financiën</h3>
-            <p>E-mail 9018644@student.tcrmbo.nl</p>
+            <p>E-mail 9018376@student.tcrmbo.nl</p>
         </section>
         <section class="emp">
             <img src="./img/pass/floris.jpg" alt="" class="pass">
             <h2>Floris Breemer</h2>
             <h3>Head Marketing</h3>
-            <p>E-mail 9018376@student.tcrmbo.nl</p>
+            <p>
+            9018644@student.tcrmbo.nl
+            </p>
         </section>
     </main>
     <?php
