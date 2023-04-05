@@ -89,6 +89,7 @@ nav ul {
 }
 
 footer {
+  position: absolute;
   bottom: 0;
   background-color: black;
   color: brown;
