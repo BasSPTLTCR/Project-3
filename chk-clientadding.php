@@ -44,132 +44,20 @@
         #1-1 komt id voor?
         try
         {
-            $chkclientfirstname = $db->prepare("SELECT `firstname` FROM `client` WHERE `firstname` = :clientfirstname");
-            $chkclientfirstname->bindValue(':clientfirstname', $clientfirstname);
-        }
-        catch(PDOException $e) 
-        {
-            die("Fout bij verbinden met database: " . $e->getMessage());
-        }
-        if ($chkclientfirstname->RowCount() < 0) {
-            echo "Klant voornaam bestaal al";
-        }
-        try
-        {
-            $chkclientsurname = $db->prepare("SELECT `surname` FROM `client` WHERE `surname` = :clientsurname");
-            $chkclientsurname->bindValue(':clientsurname', $clientsurname);
-        }
-        catch(PDOException $e) 
-        {
-            die("Fout bij verbinden met database: " . $e->getMessage());
-        }
-        if ($chkclientsurname->RowCount() < 0) {
-            echo "Klant achternaam bestaat al";
-        }
-
-        try
-        {
-            $chkclientgender = $db->prepare("SELECT `gender` FROM `client` WHERE `gender` = :clientgender");
-            $chkclientgender->bindValue(':clientgender', $clientgender);
-        }
-        catch(PDOException $e) 
-        {
-            die("Fout bij verbinden met database: " . $e->getMessage());
-        }
-        if ($chkclientgender->RowCount() < 0) {
-            echo "Klant geslacht bestaal al";
-        }
-
-        try
-        {
-            $chkclientaddress = $db->prepare("SELECT `address` FROM `client` WHERE `address` = :clientaddress");
-            $chkclientaddress->bindValue(':clientaddress', $clientaddress);
-        }
-        catch(PDOException $e) 
-        {
-            die("Fout bij verbinden met database: " . $e->getMessage());
-        }
-        if ($chkclientaddress->RowCount() < 0) {
-            echo "Klant adres bestaal al";
-        }
-
-        try
-        {
-            $chkclientcity = $db->prepare("SELECT `city` FROM `client` WHERE `city` = :clientcity");
-            $chkclientcity->bindValue(':clientcity', $clientcity);
-        }
-        catch(PDOException $e) 
-        {
-            die("Fout bij verbinden met database: " . $e->getMessage());
-        }
-        if ($chkclientcity->RowCount() < 0) {
-            echo "Klant stad bestaal al";
-        }
-
-        try
-        {
-            $chkclientzipcode = $db->prepare("SELECT `zipcode` FROM `client` WHERE `zipcode` = :clientzipcode");
-            $chkclientzipcode->bindValue(':clientzipcode', $clientzipcode);
-        }
-        catch(PDOException $e) 
-        {
-            die("Fout bij verbinden met database: " . $e->getMessage());
-        }
-        if ($chkclientzipcode->RowCount() < 0) {
-            echo "Klant zipcode bestaal al";
-        }
-
-        try
-        {
-            $chkclientemail = $db->prepare("SELECT `email` FROM `client` WHERE `email` = :clientemail");
-            $chkclientemail->bindValue(':clientemail', $clientemail);
-        }
-        catch(PDOException $e) 
-        {
-            die("Fout bij verbinden met database: " . $e->getMessage());
-        }
-        if ($chkclientemail->RowCount() < 0) {
-            echo "Klant e-mail bestaal al";
-        }
-
-        try
-        {
-            $chkclientphonenumber = $db->prepare("SELECT `phonenumber` FROM `client` WHERE `phonenumber` = :clientphonenumber");
-            $chkclientphonenumber->bindValue(':clientphonenumber', $clientphonenumber);
-        }
-        catch(PDOException $e) 
-        {
-            die("Fout bij verbinden met database: " . $e->getMessage());
-        }
-        if ($chkclientphonenumber->RowCount() < 0) {
-            echo "Klant voornaam bestaal al";
-        }
-
-        try
-        {
             $chkclientusername = $db->prepare("SELECT `username` FROM `client` WHERE `username` = :clientusername");
             $chkclientusername->bindValue(':clientusername', $clientusername);
+            $chkclientusername->execute();
         }
         catch(PDOException $e) 
         {
             die("Fout bij verbinden met database: " . $e->getMessage());
         }
-        if ($chkclientusername->RowCount() < 0) {
-            echo "Klant username bestaal al";
+        if ($chkclientusername->RowCount() > 0) {
+            echo "<h2>Username bestaal al</h2>";
+            header("Refresh:3; url=frm-clientadding.php");
+            die;
         }
 
-        try
-        {
-            $chkclientpassword = $db->prepare("SELECT `password` FROM `client` WHERE `password` = :clientpassword");
-            $chkclientpassword->bindValue(':clientpassword', $clientpassword);
-        }
-        catch(PDOException $e) 
-        {
-            die("Fout bij verbinden met database: " . $e->getMessage());
-        }
-        if ($chkclientpassword->RowCount() < 0) {
-            echo "Klant wachtwoord bestaal al";
-        }
         #2 querydef
         ?>
         <form action="./do-clientadding.php" method="post">
