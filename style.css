@@ -143,6 +143,9 @@ header {
 /*end=Algemeen*/
 
 /*Page-Specifiek*/
+.prodfoot{
+  padding-top: 10vh;
+}
 .tafel{
   font-size: 1.6rem;
   padding-bottom: 12rem;

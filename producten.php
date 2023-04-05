@@ -60,8 +60,12 @@
         }
         #6 geen result melding
 
+        ?>
+        <div class="prodfoot">
+        <?php
     include "./footer.php";
     ?>
+    </div>
 
 </body>
 
