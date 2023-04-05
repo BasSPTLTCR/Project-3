@@ -44,36 +44,36 @@
         $result=$fullQuery->FetchAll(PDO::FETCH_ASSOC);
         
 ?>
-    <h2>Geef de gegevens van de klant op</h2>
+    <h2>Registreer</h2>
     <form action="./chk-clientadding.php" method="post">
-        <label for="clientfirstname">Klant voornaam</label>
+        <label for="clientfirstname">Voornaam</label>
         <input type="text" name="clientfirstname" required>
 
-        <label for="clientsurname">Klant achternaam</label>
+        <label for="clientsurname">Achternaam</label>
         <input type="text" name="clientsurname" required>
 
-        <label for="clientgender">Klant geslacht</label>
+        <label for="clientgender">Geslacht</label>
         <input type="text" name="clientgender" required>
 
-        <label for="clientaddress">Klant adres</label>
+        <label for="clientaddress">Adres</label>
         <input type="text" name="clientaddress" required>
 
-        <label for="clientcity">Klant stad</label>
+        <label for="clientcity">Stad</label>
         <input type="text" name="clientcity" required>
 
-        <label for="clientzipcode">Klant zipcode</label>
+        <label for="clientzipcode">Zipcode</label>
         <input type="text" name="clientzipcode" required>
 
-        <label for="clientemail">Klant email</label>
+        <label for="clientemail">E-mail</label>
         <input type="text" name="clientemail" required>
 
-        <label for="clientphonenumber">Klant telefoonnummer</label>
+        <label for="clientphonenumber">Telefoonnummer</label>
         <input type="text" name="clientphonenumber" required>
 
-        <label for="clientusername">Klant gebruikersnaam</label>
+        <label for="clientusername">Gebruikersnaam</label>
         <input type="text" name="clientusername" required>
 
-        <label for="clientpassword">Klant wachtwoord</label>
+        <label for="clientpassword">Wachtwoord</label>
         <input type="text" name="clientpassword" required>
 
         <input type="submit" value="voegtoe" name="voegtoe">
