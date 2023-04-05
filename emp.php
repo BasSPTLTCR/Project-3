@@ -13,7 +13,7 @@
     include "./nav.php";
     ?>
     <header>
-        <h1>Mederwerkers</h1>
+        <h1>Medewerkers</h1>
     </header>
     <main class="emplist">
         <section class="emp">
