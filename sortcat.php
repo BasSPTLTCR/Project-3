@@ -61,7 +61,7 @@
         try
         {
             $fullQuery = $db->prepare("SELECT product.name AS ProductName, product.price AS ProductPrice, category.name AS CategoryName FROM `product` INNER JOIN category on product.category_id = category.id WHERE category.name LIKE :CatName ;");
-            $fullQuery->bindValue(':CatName', $CatName . "%");
+            $fullQuery->bindValue(':CatName', $CatName);
         }
         catch(PDOExeption $e) 
         {

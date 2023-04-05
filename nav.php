@@ -21,7 +21,7 @@
         <li class="dropdown">
             <a href="producten.php" class="dropbtn">Producten</a>
             <div class="dropdown-content">
-                <a href="./sortcat.php">Producten Overzicht</a>
+                <a href="./proohofconsecpt.php">Producten Overzicht</a>
                 <a href="./average-price-cat.php">Gemiddelde Prijs Per Catagorie</a>
                 <a href="./productcounter.php">Producten Per Catagorie</a>
                 <a href="./frm-productadding.php">Product toevoegen</a>

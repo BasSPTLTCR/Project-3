@@ -12,21 +12,62 @@
     include "./nav.php";
     ?>
     <form action="" method="post">
-        <input type="text" name="search" id="search">
-        <input type="submit" name="confirm" value="confirm">
+
     </form>
     <?php
-    if (isset($_POST["confirm"])) {
-        $search = $_POST["search"];
-    }
             #1 verbinding database
             require './dbconnenct.php';
+        try
+        {
+            $oneQuery = $db->prepare("SELECT name as CatName FROM `category` ORDER BY `CatName` ASC;");
+        }
+        catch(PDOExeption $e) 
+        {
+            die("Fout bij verbinden met database: " . $e->getMessage());
+        }
+        #3 querydoen
+        $oneQuery->execute();
+
+        #4 checkresult
+        if ($oneQuery->RowCount() > 0)
+        $result=$oneQuery->FetchAll(PDO::FETCH_ASSOC);
+
+        #5 show result
+        ?>
+        <form action="" method="post">
+        <select name="CatName" id="CatName">
+            <option value="">--- Category ---</option>
+
+                <?php
+                    foreach($result as $rij) 
+                    {
+                        echo "<option>".$rij["CatName"]."</option>";
+                    }
+                ?>
+            </select>
+            <input type="text" name="search" id="search">
+            <input type="submit" name="confirm" value="confirm">
+        </form>
+        <?php
+                $CatName= "%";
+                $search= "%";
+            if (isset($_POST["confirm"])) {
+                $CatName= $_POST["CatName"];
+                $search= "%" . $_POST["search"] . "%";
+                if ($CatName == "") {
+                    $CatName= "%";
+                }
+                if ($search == "") {
+                    $search= "%";
+                }
+            }
 
             #2 querydef
             try
             {
-                $fullQuery = $db->prepare("SELECT product.name AS ProductName, product.price, supplier.name AS SupplierName FROM `product` INNER JOIN supplier ON product.supplier_id = supplier.id WHERE supplier.name LIKE :search;");
-                $fullQuery->bindValue(':search', "%" . $search . "%");
+                $fullQuery = $db->prepare("SELECT product.name AS ProductName, product.price, supplier.name AS SupplierName, category.name AS CategoryName FROM `product` INNER JOIN supplier ON product.supplier_id = supplier.id INNER JOIN category on product.category_id = category.id WHERE supplier.name LIKE :search AND category.name LIKE :CatName;");
+                $fullQuery->bindValue(':search',$search);
+                $fullQuery->bindValue(':CatName', $CatName);
             }
             catch(PDOExeption $e) 
             {
@@ -42,11 +83,12 @@
     
             #5 show result
             ?>
-            <table class="tafel2">
+            <table class="tafel">
                 <thead>
                     <th>ProductName</th>
                     <th>price</th>
                     <th>SupplierName</th>
+                    <th>CategoryName</th>
                 </thead>
                 <tbody>
                     <?php
@@ -54,7 +96,8 @@
                         {
                             echo "<tr><td>" . $rij["ProductName"] . "</td>";
                             echo "<td>" . $rij["price"] . "</td>";
-                            echo "<td>" . $rij["SupplierName"] . "</td></tr>";
+                            echo "<td>" . $rij["SupplierName"] . "</td>";
+                            echo "<td>" . $rij["CategoryName"] . "</td></tr>";
                         }
                     ?>
     
