@@ -40,8 +40,8 @@
 
             foreach($result as $rij) 
                 {
-                    $search = array("/", ":");
-                    $replace = array("-", "");
+                    $search = array("/", ":", '"');
+                    $replace = array("-", "", "");
                     $arr = $rij["name"];
                     $product = (str_replace($search,$replace,$arr));
 
