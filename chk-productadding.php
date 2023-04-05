@@ -47,8 +47,10 @@
         {
             die("Fout bij verbinden met database: " . $e->getMessage());
         }
-        if ($chkprodname->RowCount() < 0) {
-            echo "Leveranciernaam bestaal al";
+        if ($chkprodname->RowCount() > 0) {
+            echo "Productnaam bestaal al";
+            header("Refresh:3; url=frm-productadding.php");
+            die;
         }
         try
         {

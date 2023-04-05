@@ -48,10 +48,10 @@
         {
             die("Fout bij verbinden met database: " . $e->getMessage());
         }
-        if ($chksupname->RowCount() < 0) {
+        if ($chksupname->RowCount() > 0) {
             echo "Leveranciernaam bestaal al";
             header("Refresh:3; url=frm-suplieradding.php");
-            extit();
+            die;
         }
         try
         {
@@ -63,8 +63,10 @@
         {
             die("Fout bij verbinden met database: " . $e->getMessage());
         }
-        if ($chksupEmail->RowCount() < 0) {
+        if ($chksupEmail->RowCount()> 0) {
             echo "Leverancieremail bestaal al";
+            header("Refresh:3; url=frm-suplieradding.php");
+            die;
         }
         try
         {
@@ -76,10 +78,10 @@
         {
             die("Fout bij verbinden met database: " . $e->getMessage());
         }
-        if ($chkPhonenr->RowCount() < 0) {
+        if ($chkPhonenr->RowCount() > 0) {
             echo "LeveranciereTelefoon Nummer al ingebruik";
             header("Refresh:3; url=frm-suplieradding.php");
-            extit();
+            die;
         }
         #2 querydef
         ?>

@@ -18,11 +18,12 @@
         <h1 class= "klachth1">Klachten Formulier</h1>
             <form action="./klachtreview.php" method="post">
                 <label for="naam" >Naam:</label>
-                <input type="text" name="naam">
+                <input type="text" name="naam" required>
                 <br>
                 <label for="email">Email:</label>
-                <input type="email" name="email" require>
+                <input type="email" name="email" required>
                 <br>
+                <label for="com">Klacht: </label>
                 <br>
                 <textarea name="klacht" cols="50" rows="15"></textarea>
                 <br>
