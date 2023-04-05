@@ -172,7 +172,7 @@
         }
         #2 querydef
         ?>
-        <form action="./do-productadding.php" method="post">
+        <form action="./do-clientadding.php" method="post">
         <input type="text" name="clientfirstname" value="<?php echo $clientfirstname ?>" >
         <input type="text" name="clientsurname" value="<?php echo $clientsurname ?>" >
         <input type="text" name="clientgender" value="<?php echo $clientgender ?>" >
