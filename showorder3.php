@@ -77,14 +77,14 @@
             </thead>
             <tbody>
                 <?php
-                    foreach($result as $rij) 
-                    {
-                        echo "<tr><td>" . $rij["ClientFirstName"] . "</td>";
-                        echo "<td>" . $rij["ClientSurName"] . "</td>";
-                        echo "<td>" . $rij["purchasedate"] . "</td>";
-                        echo "<td>" . $rij["orderlist"] . "</td>";
-                        echo "<td>" . $rij["OrderPrice"] . "</td></tr>";
-                    }
+                   foreach($result as $rij){
+                   $totalAmount = number_format($rij["OrderPrice"], 2, '.', '');
+                   echo "<tr><td>" . $rij["ClientFirstName"] . "</td>";
+                   echo "<td>" . $rij["ClientSurName"] . "</td>";
+                   echo "<td>" . $rij["purchasedate"] . "</td>";
+                   echo "<td>" . $rij["orderlist"] . "</td>";
+                   echo "<td>" . $totalAmount . "</td></tr>";
+                }
                 ?>
             </tbody>
         </table>
