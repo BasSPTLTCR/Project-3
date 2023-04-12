@@ -73,7 +73,7 @@
                 <th>surname</th>    
                 <th>PurchaseDate</th>
                 <th>Number of orderlists</th>
-                <th>total price</th>
+                <th>Order price</th>
             </thead>
             <tbody>
                 <?php
