@@ -47,7 +47,7 @@
         #2 querydef
         try
         {
-            $fullQuery = $db->prepare("SELECT client.firstname AS ClientFirstName, client.surname AS ClientSurName, orders.purchasedate, COUNT(orderlisting.id) AS orderlist FROM `orders` INNER JOIN client on orders.client_id = client.id INNER JOIN orderlisting on orders.id = orderlisting.order_id WHERE orders.purchasedate >= :year GROUP BY orderlisting.order_id");
+            $fullQuery = $db->prepare("SELECT client.firstname AS ClientFirstName, client.surname AS ClientSurName, orders.purchasedate, COUNT(orderlisting.id) AS orderlist, SUM(product.price) AS OrderPrice FROM `orders` INNER JOIN client on orders.client_id = client.id INNER JOIN orderlisting on orders.id = orderlisting.order_id INNER JOIN product on orderlisting.product_id = product.id WHERE orders.purchasedate >= :year GROUP BY orderlisting.order_id");
             $fullQuery->bindValue(':year', $year);
             
         }
@@ -55,6 +55,8 @@
         {
             die("Fout bij verbinden met database: " . $e->getMessage());
         }
+
+        
         #3 querydoen
         $fullQuery->execute();
 
@@ -71,6 +73,7 @@
                 <th>surname</th>    
                 <th>PurchaseDate</th>
                 <th>Number of orderlists</th>
+                <th>total price</th>
             </thead>
             <tbody>
                 <?php
@@ -79,7 +82,8 @@
                         echo "<tr><td>" . $rij["ClientFirstName"] . "</td>";
                         echo "<td>" . $rij["ClientSurName"] . "</td>";
                         echo "<td>" . $rij["purchasedate"] . "</td>";
-                        echo "<td>" . $rij["orderlist"] . "</td></tr>";
+                        echo "<td>" . $rij["orderlist"] . "</td>";
+                        echo "<td>" . $rij["OrderPrice"] . "</td></tr>";
                     }
                 ?>
             </tbody>
