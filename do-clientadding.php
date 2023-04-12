@@ -41,7 +41,7 @@
     $clientusername = $_POST["clientusername"];
     $clientpassword = $_POST["clientpassword"];
     #maak hieronder de insert qry
-    echo "<h2>Account geregistreerd</h2>"
+    echo "<h2>Account geregistreerd</h2>";
     $insquery = $db->prepare("INSERT INTO client (firstname, surname, gender, address, city, zipcode, email, phonenumber, username, password) 
                                 VALUES (:clientfirstname, :clientsurname, :clientgender, :clientaddress, :clientcity, :clientzipcode, :clientemail, :clientphonenumber, :clientusername, :clientpassword)"); 
     $insquery->bindValue("clientfirstname", $clientfirstname);
