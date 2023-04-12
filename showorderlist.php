@@ -37,7 +37,7 @@
                 ?>
                 <form action="" method="post">
                     <select name="prod" id="prod">
-                    <option value=" ">Kies een Product</option>
+                    <option value="">Kies een Product</option>
                     <?php
                     foreach($result as $rij) 
                     {
@@ -51,6 +51,9 @@
             $year = '2000-01-01';
             if (isset($_POST["confirm"])) {
                 $prod = $_POST["prod"];
+                if ($prod == "") {
+                    $prod = "%";
+                }
             }
             if (! isset($_POST["confirm"])) {
                 $prod = "%";
