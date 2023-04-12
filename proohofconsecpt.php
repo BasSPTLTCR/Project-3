@@ -45,29 +45,42 @@
                     }
                 ?>
             </select>
-            <input type="text" name="search" id="search">
+            <div>
+                <label for="search">Product Naam:</label>
+                <input type="text" name="search" id="search">
+            </div>
+            <div>
+                <label for="search_lev">Leverancier Naam:</label>
+                <input type="text" name="search_lev" id="search_lev">
+            </div>
             <input type="submit" name="confirm" value="confirm">
         </form>
         <?php
                 $CatName= "%";
                 $search= "%";
+                $search_lev= "%";
             if (isset($_POST["confirm"])) {
                 $CatName= $_POST["CatName"];
                 $search= "%" . $_POST["search"] . "%";
+                $search_lev= "%" . $_POST["search_lev"] . "%";
                 if ($CatName == "") {
                     $CatName= "%";
                 }
                 if ($search == "") {
                     $search= "%";
                 }
+                if ($search_lev == "") {
+                    $search_lev= "%";
+                }
             }
 
             #2 querydef
             try
             {
-                $fullQuery = $db->prepare("SELECT product.name AS ProductName, product.price, supplier.name AS SupplierName, category.name AS CategoryName FROM `product` INNER JOIN supplier ON product.supplier_id = supplier.id INNER JOIN category on product.category_id = category.id WHERE supplier.name LIKE :search AND category.name LIKE :CatName;");
+                $fullQuery = $db->prepare("SELECT product.name AS ProductName, product.price, supplier.name AS SupplierName, category.name AS CategoryName FROM `product` INNER JOIN supplier ON product.supplier_id = supplier.id INNER JOIN category on product.category_id = category.id WHERE product.name LIKE :search AND category.name LIKE :CatName AND supplier.name LIKE :search_lev ;");
                 $fullQuery->bindValue(':search',$search);
                 $fullQuery->bindValue(':CatName', $CatName);
+                $fullQuery->bindValue(':search_lev', $search_lev);
             }
             catch(PDOExeption $e) 
             {

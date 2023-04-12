@@ -97,8 +97,10 @@
             </thead>
             <tbody>
                 <?php
+                    
                     foreach($result as $rij) 
                     {
+                        $totalAmount = number_format($rij["avg"], 2, '.', '');
                         if ($rij["avg"] != "") {
                             $rij["avg"] = "€" . $rij["avg"];
                         }
@@ -107,8 +109,9 @@
                         echo "<td>" . $rij["countryname"] . "</td>";
                         echo "<td>" . $rij["phonenumber"] . "</td>";
                         echo "<td>" . $rij["email"] . "</td>";
-                        echo "<td>" . $rij["avg"] . "</td></tr>";
+                        echo "<td>" . $totalAmount . "</td></tr>";
                     }
+                    
                 ?>
 
             </tbody>
