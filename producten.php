@@ -20,6 +20,7 @@
         try
         {
             $fullQuery = $db->prepare("SELECT `name`, price FROM `product`");
+            $oneQuery = $db->prepare("SELECT name as CatName FROM `category` ORDER BY `CatName` ASC;");
     
         }
         catch(PDOExeption $e) 
@@ -28,14 +29,44 @@
         }
         #3 querydoen
         $fullQuery->execute();
+        $oneQuery->execute();
 
         #4 checkresult
-        if ($fullQuery->RowCount() > 0)
+        if ($fullQuery->RowCount() > 0 && $oneQuery->RowCount() > 0)
         {
         $result=$fullQuery->FetchAll(PDO::FETCH_ASSOC);
+        $result2=$oneQuery->FetchAll(PDO::FETCH_ASSOC);
 
         #5 show result
-            
+        ?>
+        <form action="" method="post">
+        <select name="CatName" id="CatName">
+            <option value="">--- Category ---</option>
+
+                <?php
+                    foreach($result2 as $rij2) 
+                    {
+                        echo "<option>".$rij2["CatName"]."</option>";
+                    }
+                ?>
+            </select>
+            <input type="text" name="search2" id="search2">
+            <input type="submit" name="confirm" value="confirm">
+        </form>
+        <?php
+                $CatName= "%";
+                $search2= "%";
+            if (isset($_POST["confirm"])) {
+                $CatName= $_POST["CatName"];
+                $search2= "%" . $_POST["search2"] . "%";
+                if ($CatName == "") {
+                    $CatName= "%";
+                }
+                if ($search2 == "") {
+                    $search2= "%";
+                }
+            }
+
         echo "<section class='container'>";
 
             foreach($result as $rij) 
