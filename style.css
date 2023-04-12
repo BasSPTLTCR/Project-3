@@ -318,6 +318,10 @@ form {
   justify-content: center;
   align-items: center;
 }
+.klachtrdiv{
+  display: flex;
+  text-align: center;
+}
 .klachttxtback{
   height: 70vh;
   width: 60vw;

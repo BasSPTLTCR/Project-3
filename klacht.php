@@ -23,6 +23,18 @@
                 <label for="email">Email:</label>
                 <input type="email" name="email" required>
                 <br>
+                <div class="klantrdiv">
+                <div>
+                <input type="radio" name="klachtr" value="product"><label for="product">product</label>
+                </div>
+                <div>
+                <input type="radio" name="klachtr" value="werknemer"><label for="werknemer">werknemer</label>
+                </div>
+                <div>
+                <input type="radio" name="klachtr" value="website"><label for="website">website</label>
+                </div>
+                </div>
+                <br>
                 <label for="com">Klacht: </label>
                 <br>
                 <textarea name="klacht" cols="50" rows="15"></textarea>
