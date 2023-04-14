@@ -90,6 +90,7 @@
             </thead>
             <tbody>
                 <?php
+                
                     foreach($result as $rij) 
                     {
                         if ($rij["avg"] != "") {

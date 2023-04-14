@@ -11,7 +11,7 @@
 
 <body class="grey-background">
     <?php include "nav.php" ?>
-
+<!-- alle informatie retour policy -->
     <div class="informatie-algemeen">
         <p class="doeltekst">
             We zijn verheugd u te mogen verwelkomen in onze webshop. Om u te voorzien van alle nodige informatie over

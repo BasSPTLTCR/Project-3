@@ -16,6 +16,7 @@
         <section class="klachttxtback">
         <form action="klachtreview.php" method="post">
         <h1 class= "klachth1">Klachten Formulier</h1>
+        <!-- form klachten -->
             <form action="./klachtreview.php" method="post">
                 <label for="naam" >Naam:</label>
                 <input type="text" name="naam" required>

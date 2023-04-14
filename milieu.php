@@ -14,6 +14,7 @@
     <?php
     include "./nav.php";
     ?>
+    <!-- alle informatie van milieu -->
     <header class="informatie-algemeen">
     <p class="doeltekst">Als het gaat om de milieuvriendelijkheid van SiRa, een bedrijf dat gespecialiseerd is in het doorverkopen van
         simulator racing spullen, zijn er verschillende factoren om te overwegen.

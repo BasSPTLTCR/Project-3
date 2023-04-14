@@ -29,18 +29,6 @@ session_start();
     echo '<p class="reviewklacht">klacht: </p>';
     echo  '<p class="textreview">'. $_POST["klacht"] . '</p>';
 ?>
-<!-- <form action="" method="post">
-                <label for="naam" >Naam:</label>
-                <input type="text" name="naam">
-                <br>
-                <label for="email">Email:</label>
-                <input type="email" name="email" require>
-                <br>
-                <br>
-                <textarea name="klacht" cols="50" rows="15"></textarea>
-                <br>
-                <input type="submit" value="Verstuur" class="klachtbtn">
-        </form> -->
    </section>
   </section>
 <?php
