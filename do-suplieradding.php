@@ -50,7 +50,7 @@
                         $supcountryid = $rij["idcountry"];
                     }
         }
-    #maak hieronder de insert qry
+    #insert qry
     $supname = $_POST["supname"];
     $supaddress = $_POST["supaddress"];
     $supPhonenr = $_POST["supPhonenr"];

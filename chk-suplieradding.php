@@ -37,7 +37,7 @@
         #0b vraag gegeven voor voegtoe
 
         #1 control gegevens
-        #1-1 komt id voor?
+        #1-1 komt supname voor?
         try
         {
             $chksupname = $db->prepare("SELECT `name` FROM `supplier` WHERE `name` = :supname");
