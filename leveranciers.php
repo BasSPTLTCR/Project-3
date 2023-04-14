@@ -1,131 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Leveranciers</title>
+    <title>Document</title>
 </head>
-
 <body>
     <?php
     include "./nav.php";
     ?>
-    <main>
-        <?php
-        #1 verbinding database
-        require './dbconnenct.php';
+    <form action="" method="post">
 
-        #2 querydef
+    </form>
+    <?php
+            #1 verbinding database
+            require './dbconnenct.php';
         try
         {
-            $fullQuery = $db->prepare("SELECT DISTINCT country.name AS country FROM `supplier` INNER JOIN country on supplier.country_id = country.idcountry ORDER BY `country`.`name` ASC");
-
+            $oneQuery = $db->prepare("SELECT name as CatName FROM `category` ORDER BY `CatName` ASC;");
         }
         catch(PDOExeption $e) 
         {
             die("Fout bij verbinden met database: " . $e->getMessage());
         }
         #3 querydoen
-        $fullQuery->execute();
+        $oneQuery->execute();
 
         #4 checkresult
-        if ($fullQuery->RowCount() > 0)
-        {
-        $result=$fullQuery->FetchAll(PDO::FETCH_ASSOC);
+        if ($oneQuery->RowCount() > 0)
+        $result=$oneQuery->FetchAll(PDO::FETCH_ASSOC);
 
         #5 show result
         ?>
         <form action="" method="post">
-        <select name="country" id="country">
-            <option value="">--- Kies een land ---</option>
+        <select name="CatName" id="CatName">
+            <option value="">--- Category ---</option>
 
                 <?php
                     foreach($result as $rij) 
                     {
-                        echo "<option>".$rij["country"]."</option>";
+                        echo "<option>".$rij["CatName"]."</option>";
                     }
                 ?>
             </select>
-            <input type="text" name="sup" id="sup">
+            <div>
+                <label for="search">Product Naam:</label>
+                <input type="text" name="search" id="search">
+            </div>
+            <div>
+                <label for="search_lev">Leverancier Naam:</label>
+                <input type="text" name="search_lev" id="search_lev">
+            </div>
             <input type="submit" name="confirm" value="confirm">
         </form>
         <?php
+                $CatName= "%";
+                $search= "%";
+                $search_lev= "%";
+            if (isset($_POST["confirm"])) {
+                $CatName= $_POST["CatName"];
+                $search= "%" . $_POST["search"] . "%";
+                $search_lev= "%" . $_POST["search_lev"] . "%";
+                if ($CatName == "") {
+                    $CatName= "%";
+                }
+                if ($search == "") {
+                    $search= "%";
+                }
+                if ($search_lev == "") {
+                    $search_lev= "%";
+                }
             }
-            $country= "%";
-            $sup= "%";
-        if (isset($_POST["confirm"])) {
-            $country = $_POST["country"];
-            $sup = "%" . $_POST["sup"] . "%";
-            if ($country == "") {
-                $country= "%";
+
+            #2 querydef
+            try
+            {
+                $fullQuery = $db->prepare("SELECT product.name AS ProductName, product.price, supplier.name AS SupplierName, category.name AS CategoryName FROM `product` INNER JOIN supplier ON product.supplier_id = supplier.id INNER JOIN category on product.category_id = category.id WHERE product.name LIKE :search AND category.name LIKE :CatName AND supplier.name LIKE :search_lev ;");
+                $fullQuery->bindValue(':search',$search);
+                $fullQuery->bindValue(':CatName', $CatName);
+                $fullQuery->bindValue(':search_lev', $search_lev);
             }
-            if ($sup == "") {
-                $sup = "%";
+            catch(PDOExeption $e) 
+            {
+                die("Fout bij verbinden met database: " . $e->getMessage());
             }
-        }
-        try 
-        {
-            $fullQuery = $db->prepare("SELECT supplier.name, supplier.address, country.name AS countryname, supplier.phonenumber, supplier.email, sum(product.price)/ COUNT(product.id) AS avg FROM `supplier` INNER JOIN country on supplier.country_id = country.idcountry LEFT JOIN product on supplier.id = product.supplier_id WHERE country.name LIKE :country AND supplier.name LIKE :sup GROUP BY supplier.name;");
-            $fullQuery->bindValue(':sup', $sup);  
-            $fullQuery->bindValue(':country', $country);
-        }
-        catch(PDOExeption $e) 
-        {
-            die("Fout bij verbinden met database: " . $e->getMessage());
-        }
-        #3 querydoen
-        $fullQuery->execute();
-
-        #4 checkresult
-        if ($fullQuery->RowCount() > 0)
-        {
-        $result=$fullQuery->FetchAll(PDO::FETCH_ASSOC);
-
-        #5 show result
-        ?>
-        <table class="tafel">
-            <thead>
-                <th>name</th>
-                <th>address</th>
-                <th>country</th>
-                <th>phonenumber</th>
-                <th>email</th>
-                <th>avarage</th>
-            </thead>
-            <tbody>
-                <?php
-                    
-                    foreach($result as $rij) 
-                    {
-                        $totalAmount = number_format($rij["avg"], 2, '.', '');
-                        $totalAmount = "€" . $totalAmount;
-                        echo "<tr><td>" . $rij["name"] . "</td>";
-                        echo "<td>" . $rij["address"] . "</td>";
-                        echo "<td>" . $rij["countryname"] . "</td>";
-                        echo "<td>" . $rij["phonenumber"] . "</td>";
-                        echo "<td>" . $rij["email"] . "</td>";
-                        echo "<td>" . $totalAmount . "</td></tr>";
-                    }
-                    
-                ?>
-
-            </tbody>
-        </table>
-        <?php
-        }
-        else
-        {
-            echo "<h2>Sorry, geen resultaat gevonden</h2>";
-        }
-        #6 geen result melding
-        ?>
-    </main>
+            #3 querydoen
+            $fullQuery->execute();
+    
+            #4 checkresult
+            if ($fullQuery->RowCount() > 0)
+            {
+            $result=$fullQuery->FetchAll(PDO::FETCH_ASSOC);
+    
+            #5 show result
+            ?>
+            <table class="tafel">
+                <thead>
+                    <th>ProductName</th>
+                    <th>price</th>
+                    <th>SupplierName</th>
+                    <th>CategoryName</th>
+                </thead>
+                <tbody>
+                    <?php
+                        foreach($result as $rij) 
+                        {
+                            echo "<tr><td>" . $rij["ProductName"] . "</td>";
+                            echo "<td>" . $rij["price"] . "</td>";
+                            echo "<td>" . $rij["SupplierName"] . "</td>";
+                            echo "<td>" . $rij["CategoryName"] . "</td></tr>";
+                        }
+                    ?>
+    
+                </tbody>
+            </table>
+            <?php
+            }
+            else
+            {
+                echo "<h2>Sorry, geen resultaat gevonden</h2>";
+            }
+            #6 geen result melding
+            ?>
     <?php
     include "./footer.php";
     ?>
-</body>
 
+</body>
 </html>
