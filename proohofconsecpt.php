@@ -107,8 +107,10 @@
                     <?php
                         foreach($result as $rij) 
                         {
+                            $totalAmount = number_format($rij["price"], 2, '.', '');
+                            $totalAmount = "€" . $totalAmount;
                             echo "<tr><td>" . $rij["ProductName"] . "</td>";
-                            echo "<td>" . $rij["price"] . "</td>";
+                            echo "<td>" . $totalAmount . "</td>";
                             echo "<td>" . $rij["SupplierName"] . "</td>";
                             echo "<td>" . $rij["CategoryName"] . "</td></tr>";
                         }
