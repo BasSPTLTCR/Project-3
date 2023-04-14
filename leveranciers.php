@@ -101,9 +101,7 @@
                     foreach($result as $rij) 
                     {
                         $totalAmount = number_format($rij["avg"], 2, '.', '');
-                        if ($rij["avg"] != "") {
-                            $rij["avg"] = "€" . $rij["avg"];
-                        }
+                        $totalAmount = "€" . $totalAmount;
                         echo "<tr><td>" . $rij["name"] . "</td>";
                         echo "<td>" . $rij["address"] . "</td>";
                         echo "<td>" . $rij["countryname"] . "</td>";
