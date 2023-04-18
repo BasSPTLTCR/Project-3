@@ -35,7 +35,7 @@
         $result=$fullQuery->FetchAll(PDO::FETCH_ASSOC);
         
 ?>
-    <h2>voeg een land toe</h2>
+    <h2>voeg een categorie toe</h2>
     <form action="./chk-categoryadding.php" method="post">
         <label for="catname">Categorie</label>
         <input type="text" name="catname" required>
