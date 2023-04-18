@@ -19,7 +19,7 @@
         #2 querydef
         try
         {
-            $fullQuery = $db->prepare("SELECT COUNT(product.id) AS NumberOfProducts, category.name AS CategoryName FROM product INNER JOIN category on product.category_id = category.id WHERE product.category_id GROUP BY product.category_id");
+            $fullQuery = $db->prepare("SELECT COUNT(product.id) AS NumberOfProducts, category.name AS CategoryName FROM product INNER JOIN category on product.category_id = category.id GROUP BY product.category_id");
 
         }
         catch(PDOExeption $e) 
